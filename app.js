@@ -18,7 +18,8 @@
       signals:["Búsquedas de apartamentos amplios en Envigado","Visitas a tipologías, servicios y zonas comunes","Contenido de arquitectura, diseño interior y vida familiar"],
       message:"Un hogar para los momentos que de verdad importan.",
       creative:"Carrusel: áreas, piscina, coworking y experiencia de vivir en Loma de las Brujas.",
-      platform:"Meta descubrimiento + Search local"
+      platform:"Meta descubrimiento + Search local",
+      interests:["Arquitectura","Diseño de interiores","Decoración del hogar","Muebles de diseño","Proyectos inmobiliarios","Hogar y jardín"]
     },
     {
       name:"Ejecutivos y empresarios",short:"Ejecutivos",key:"02",age:"30–49 años",weight:30,
@@ -29,7 +30,8 @@
       signals:["Interacción con contenidos de diseño y arquitectura","Búsquedas de apartamentos premium y contemporáneos","Interés en agendar visitas o conocer condiciones"],
       message:"Diseñado para quienes no negocian su forma de vivir.",
       creative:"Video: experiencia de llegar a Pinot, zonas comunes y diseño contemporáneo.",
-      platform:"Meta prospecting + Google premium"
+      platform:"Meta prospecting + Google premium",
+      interests:["Arquitectura contemporánea","Diseño de interiores","Diseño de muebles","Viajes","Gastronomía","Bienes raíces"]
     },
     {
       name:"Patrimonio e inversión",short:"Patrimoniales",key:"03",age:"40–65 años",weight:20,
@@ -40,7 +42,8 @@
       signals:["Búsquedas de apartamentos nuevos en Envigado","Consultas sobre precios, áreas y fiducia","Descargas de brochure o solicitudes de cita"],
       message:"Una ubicación para pensar el futuro con claridad.",
       creative:"Anuncio/landing con ubicación, Torre 2, metrajes, respaldo y cuota inicial verificada.",
-      platform:"Google Search + remarketing informativo"
+      platform:"Google Search + remarketing informativo",
+      interests:["Bienes raíces","Inversión inmobiliaria","Arquitectura","Vivienda nueva","Mercado inmobiliario","Diseño de interiores"]
     },
     {
       name:"Upgrade residencial",short:"Cambio de hogar",key:"04",age:"32–58 años",weight:15,
@@ -51,7 +54,8 @@
       signals:["Búsquedas de vivienda nueva y cambio de vivienda","Visitas repetidas a recorridos 360° o tipologías","Usuarios con señales explícitas de compra"],
       message:"Tu siguiente hogar no tiene por qué parecerse al anterior.",
       creative:"Antes/después aspiracional sin comparación negativa: amplitud, estilo, amenidades.",
-      platform:"Meta remarketing + Search comparativo"
+      platform:"Meta remarketing + Search comparativo",
+      interests:["Diseño de interiores","Mejoras del hogar","Arquitectura","Decoración","Proyectos residenciales","Vivienda nueva"]
     }
   ];
   const zones=[
@@ -101,6 +105,7 @@
     $("#clusterCards").innerHTML=clusters.map((c,i)=>'<button class="cluster-card '+(state.activeCluster===i?'selected':'')+'" data-cluster="'+i+'" aria-pressed="'+(state.activeCluster===i)+'"><div class="cluster-photo"><img loading="lazy" src="'+c.image+'" alt="Imagen arquitectónica de Pinot"><span class="cluster-num">CLÚSTER / '+c.key+'</span></div><span>'+c.age+' · HIPÓTESIS</span><h3>'+c.name+'</h3><p>'+c.summary+'</p><div class="cluster-foot"><strong>'+c.weight+'% de inversión sugerida</strong><span>↗</span></div></button>').join("");
     $$(".cluster-card").forEach(btn=>btn.addEventListener("click",()=>{state.activeCluster=Number(btn.dataset.cluster);renderClusters();$("#clusterDetail").scrollIntoView({block:"nearest",behavior:"smooth"});}));
     let c=clusters[state.activeCluster];
+    $("#metaInterests").innerHTML='<div class="interest-content"><div><span class="label-mini">CLÚSTER SELECCIONADO</span><h4>'+c.name+'</h4><p>Prueba estos términos en Ads Manager. Si no existen, elige alternativas verificables o deja la segmentación amplia.</p></div><div class="interest-chips">'+c.interests.map(v=>'<span>✧ '+v+'</span>').join("")+'</div></div>';
     $("#clusterDetail").innerHTML='<div class="cluster-detail-head"><h2>'+c.name+'</h2><span>PERFIL '+c.key+' / '+c.age+'</span></div><div class="cluster-detail-grid"><div><h4>EL INSIGHT HUMANO</h4><blockquote class="cluster-quote">'+c.quote+'</blockquote><p>'+c.why+'</p></div><div><h4>SEÑALES A VALIDAR</h4><ul>'+c.signals.map(s=>'<li>'+s+'</li>').join("")+'</ul></div><div><h4>MENSAJE & ACTIVACIÓN</h4><p><b>'+c.message+'</b></p><p>'+c.creative+'</p><p style="color:#997187;font-weight:800">→ '+c.platform+'</p></div></div>';
   }
   let leafletMap=null,markers=[];
