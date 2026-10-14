@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#331f31" />
+  <meta name="description" content="PINOT — Laboratorio estratégico de audiencias, medios y creatividad para vivienda premium en Envigado." />
+  <title>PINOT | Luxury Audience Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <a href="#summary" class="brand-mark" aria-label="PINOT Inicio"><span class="brand-emblem">✦</span><span class="brand-word">PINOT<span class="brand-dot">.</span></span></a>
+      <span class="brand-subtitle">AUDIENCE INTELLIGENCE <small>EDICIÓN 2026</small></span>
+    </div>
+    <div class="sidebar-scroll">
+      <div class="menu-eyebrow">LABORATORIO ESTRATÉGICO</div>
+      <nav class="side-nav" aria-label="Secciones del tablero">
+        <a href="#summary" data-nav="summary" class="nav-link active"><span class="nav-symbol">◫</span><span>Visión ejecutiva</span><span class="nav-arrow">↗</span></a>
+        <a href="#audiences" data-nav="audiences" class="nav-link"><span class="nav-symbol">◎</span><span>Clústeres premium</span><span class="nav-arrow">↗</span></a>
+        <a href="#territory" data-nav="territory" class="nav-link"><span class="nav-symbol">⌖</span><span>Mapa de oportunidad</span><span class="nav-arrow">↗</span></a>
+        <a href="#media" data-nav="media" class="nav-link"><span class="nav-symbol">▥</span><span>Arquitectura de medios</span><span class="nav-arrow">↗</span></a>
+        <a href="#keywords" data-nav="keywords" class="nav-link"><span class="nav-symbol">⌕</span><span>Keyword intelligence</span><span class="nav-arrow">↗</span></a>
+        <a href="#creatives" data-nav="creatives" class="nav-link"><span class="nav-symbol">✧</span><span>Creative studio</span><span class="nav-arrow">↗</span></a>
+        <a href="#simulator" data-nav="simulator" class="nav-link"><span class="nav-symbol">≋</span><span>Simulador de inversión</span><span class="nav-arrow">↗</span></a>
+        <a href="#measurement" data-nav="measurement" class="nav-link"><span class="nav-symbol">◇</span><span>Calidad & medición</span><span class="nav-arrow">↗</span></a>
+      </nav>
+      <div class="menu-eyebrow secondary-menu">PROYECTO</div>
+      <a class="project-link" href="https://www.pinot.com.co/" target="_blank" rel="noopener"><span class="project-icon">P</span><span><strong>Pinot Apartamentos</strong><small>Loma de las Brujas · Envigado</small></span><span>↗</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="footer-orbit">✳</div>
+      <div><strong>Beyond the ordinary.</strong><span>Más intención. Mejores compradores.</span></div>
+      <span class="footer-year">2026</span>
+    </div>
+  </aside>
+
+  <div class="main-column">
+    <header class="topbar">
+      <div class="topbar-left"><button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">☰</button><span class="topbar-breadcrumb">ADQUIRIR <span>/</span> PINOT <span>/</span> <b id="breadcrumb">VISIÓN EJECUTIVA</b></span></div>
+      <div class="topbar-right"><span class="data-chip"><span class="pulse"></span> PLANIFICACIÓN · NO DATOS EN VIVO</span><span class="period-chip">OCTUBRE 2026 <span>⌄</span></span><button id="exportBtn" class="header-action" title="Descargar proyección en CSV">↓ <span>Exportar</span></button></div>
+    </header>
+
+    <main class="main-content">
+      <section id="summary" class="page active">
+        <div class="section-head">
+          <div><p class="eyebrow"><span class="eyebrow-line"></span> THE PINOT INTELLIGENCE LAB · 01/08</p><h1>Una nueva forma de <em>encontrar</em><br>al comprador indicado.</h1><p class="section-subtitle">Plan de captación digital para vivienda de alto valor en Envigado. Una estrategia que cambia volumen por intención real de compra.</p></div>
+          <div class="head-stamp"><span>ESTRATEGIA PREMIUM</span><strong>2026 <span>✦</span></strong></div>
+        </div>
+        <div class="hero-banner">
+          <div class="hero-visual" role="img" aria-label="Render arquitectónico oficial del proyecto Pinot"></div>
+          <div class="hero-shade"></div>
+          <div class="hero-copy"><span class="hero-overline">PINOT APARTAMENTOS · LOMA DE LAS BRUJAS</span><h2>El lujo de elegir<br><i>extraordinariamente bien.</i></h2><p>87–164 m² aprox. · Lanzamiento torre 2 · Envigado, Antioquia</p><a href="https://www.pinot.com.co/" rel="noopener" target="_blank">CONOCER EL PROYECTO <span>↗</span></a></div>
+          <div class="hero-signature"><span>UN PROYECTO DE</span><strong>ADQUIRIR</strong></div>
+        </div>
+        <div class="section-minor"><div><span class="section-index">01</span> EL NEGOCIO EN 5 INDICADORES</div><span>Supuestos editables · Escenario mensual</span></div>
+        <div class="metrics-grid">
+          <article class="metric-card"><div class="metric-top">INVERSIÓN MENSUAL <span>↗</span></div><strong id="summaryBudget">$8,5 <small>M</small></strong><div class="metric-bottom"><span class="mini-pill">100% asignado</span> Google + Meta</div><div class="metric-deco"></div></article>
+          <article class="metric-card featured"><div class="metric-top">CPL OBJETIVO <span>◇</span></div><strong id="summaryCpl">$70.000</strong><div class="metric-bottom"><span class="mini-pill light">Filtro premium</span> no confundir con CPL real</div><div class="metric-deco"></div></article>
+          <article class="metric-card"><div class="metric-top">LEADS PROYECTADOS <span>↗</span></div><strong id="summaryLeads">121 <small>/mes</small></strong><div class="metric-bottom"><span class="mini-pill">Estimación</span> presupuesto ÷ CPL</div><div class="metric-deco"></div></article>
+          <article class="metric-card"><div class="metric-top">AUDIENCIAS PRIORITARIAS <span>◎</span></div><strong>04 <small>clústeres</small></strong><div class="metric-bottom">Mensajes y señales diferenciadas</div><div class="metric-deco"></div></article>
+          <article class="metric-card"><div class="metric-top">TICKET DE FILTRO <span>✧</span></div><strong>$1.300 <small>M+</small></strong><div class="metric-bottom">Criterio comercial, no precio mínimo</div><div class="metric-deco"></div></article>
+        </div>
+        <div class="dashboard-two">
+          <article class="panel investment-panel">
+            <div class="panel-header"><div><p class="label-mini">DISTRIBUCIÓN MENSUAL</p><h3>Un mix pensado para <i>convertir.</i></h3></div><span class="panel-detail">META × GOOGLE</span></div>
+            <div class="allocation-content">
+              <div class="allocation-ring" id="allocationRing"><div class="ring-center"><span>INVERSIÓN</span><strong>$8,5M</strong><small>100%</small></div></div>
+              <div class="allocation-info"><div class="allocation-row"><span class="allocation-bullet meta-bullet"></span><div><strong>Meta Ads</strong><small>Descubrimiento + consideración</small></div><div class="allocation-value"><b id="metaSum">$4,68M</b><span id="metaPercent">55%</span></div></div><div class="allocation-row"><span class="allocation-bullet google-bullet"></span><div><strong>Google Ads</strong><small>Intención explícita de búsqueda</small></div><div class="allocation-value"><b id="googleSum">$3,83M</b><span id="googlePercent">45%</span></div></div><p class="plain-meaning"><span>✦ EN PALABRAS SIMPLES</span> Meta presenta Pinot al comprador adecuado; Google captura a quien ya está buscando apartamentos premium.</p></div>
+            </div>
+          </article>
+          <article class="panel strategic-panel">
+            <div class="panel-header"><div><p class="label-mini">EL INSIGHT PRINCIPAL</p><h3>Menos formularios.<br><i>Más compradores.</i></h3></div><span class="insight-star">✳</span></div>
+            <div class="quote-mark">“</div><p class="big-insight">No necesitamos que más personas pregunten por Pinot. Necesitamos que las <strong>personas correctas</strong> quieran conocerlo.</p>
+            <div class="insight-foot"><span class="insight-rule"></span><span>DEL VOLUMEN A LA CALIDAD</span><button data-goto="measurement">Ver cómo lo mediremos ↗</button></div>
+          </article>
+        </div>
+        <div class="bottom-triptych">
+          <div class="numbered-note"><span>01 / AUDIENCIA</span><h4>Quién puede comprar</h4><p>4 perfiles de necesidades reales, no etiquetas de riqueza.</p></div>
+          <div class="numbered-note"><span>02 / INTENCIÓN</span><h4>Qué está buscando</h4><p>Keywords locales y señales de demanda premium.</p></div>
+          <div class="numbered-note"><span>03 / CONVERSIÓN</span><h4>Cuándo vale un lead</h4><p>Presupuesto validado, interés auténtico y visita agendada.</p></div>
+        </div>
+      </section>
+
+      <section id="audiences" class="page">
+        <div class="section-head compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> TARGETING INTELLIGENCE · 02/08</p><h1>Cuatro formas de <em>vivir bien.</em></h1><p class="section-subtitle">Segmentamos por motivación de compra y señales de interés. No inferimos ingresos reales ni prometemos que todos los intereses existan en Meta.</p></div></div>
+        <div class="section-minor"><div><span class="section-index">02</span> LOS 4 CLÚSTERES DE PINOT</div><span>Haz clic en un perfil para explorar su plan</span></div>
+        <div class="cluster-grid" id="clusterCards"></div>
+        <div class="panel cluster-detail" id="clusterDetail"></div>
+        <div class="panel" style="margin-top:18px"><div class="panel-header"><div><p class="label-mini">ARQUITECTURA DE PÚBLICOS</p><h3>De las afinidades a la <i>intención.</i></h3></div></div><div class="rule-grid"><div><span class="rule-icon">01</span><strong>Prospecting</strong><p>Ubicación relevante + mensajes por necesidad. Probar audiencias amplias contra sugerencias de intereses.</p></div><div><span class="rule-icon">02</span><strong>Remarketing</strong><p>Visitas al sitio, interacción y video viewers, respetando consentimiento y ventanas de atribución.</p></div><div><span class="rule-icon">03</span><strong>Señales propias</strong><p>CRM de leads calificados y visitas, con permisos adecuados, para optimizar por resultados valiosos.</p></div></div><p class="fine-print">Los rangos de edad y las afinidades son hipótesis creativas/estratégicas. Las categorías reales de segmentación deben validarse en Ads Manager; la renta personal no se puede deducir de un interés.</p></div>
+      </section>
+
+      <section id="territory" class="page">
+        <div class="section-head compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> GEO INTELLIGENCE · 03/08</p><h1>La geografía de la <em>oportunidad.</em></h1><p class="section-subtitle">Pinot está en Loma de las Brujas, Envigado. La pauta se expande a micromercados con afinidad premium en el Valle de Aburrá y oriente cercano.</p></div></div>
+        <div class="territory-layout">
+          <article class="panel map-panel"><div class="panel-header"><div><p class="label-mini">MAPA REAL · OPENSTREETMAP</p><h3>Un radio estratégico, <i>no un círculo genérico.</i></h3></div><span class="panel-detail">ZONAS PROPUESTAS</span></div><div class="real-map" id="territoryMap"></div><p class="fine-print">Marcadores orientativos de centros de sector; no son límites exactos de barrios ni prueban concentración de compradores. Verificar disponibilidad geográfica en plataformas.</p></article>
+          <div class="territory-side"><div class="panel territory-list"><div class="panel-header"><div><p class="label-mini">PRIORIZACIÓN</p><h3>¿Dónde activar?</h3></div></div><div id="zoneList"></div></div><article class="panel location-fact"><span>EL CENTRO DE GRAVEDAD</span><strong>Envigado.</strong><p>Loma de las Brujas es el destino. El Poblado, Envigado consolidado y Las Palmas son las áreas de prospección prioritarias; no confundir demanda potencial con población comprobada.</p><a href="https://www.pinot.com.co/" target="_blank" rel="noopener">Explorar Pinot ↗</a></article></div>
+        </div>
+      </section>
+
+      <section id="media" class="page">
+        <div class="section-head compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> MEDIA ARCHITECTURE · 04/08</p><h1>Dos plataformas. <em>Una intención.</em></h1><p class="section-subtitle">Google captura demanda activa; Meta construye deseo, interés y retorno. Cada campaña tiene un trabajo específico.</p></div></div>
+        <div class="media-summary"><div><span class="label-mini">PRESUPUESTO ACTUAL DEL MODELO</span><strong id="mediaTotal">$8.500.000</strong><small>Mensual · editable en simulador</small></div><span class="media-divider"></span><div><span class="label-mini">META ADS</span><strong id="mediaMeta">$4.675.000</strong><small>55% del plan base</small></div><span class="media-divider"></span><div><span class="label-mini">GOOGLE ADS</span><strong id="mediaGoogle">$3.825.000</strong><small>45% del plan base</small></div></div>
+        <div class="section-minor"><div><span class="section-index">04</span> CAMPAÑAS PROPUESTAS</div><span>Distribución orientativa; no gasto observado</span></div>
+        <div class="campaign-grid" id="campaignGrid"></div>
+        <div class="panel"><div class="panel-header"><div><p class="label-mini">EL RECORRIDO IDEAL</p><h3>Del primer impacto a la <i>visita.</i></h3></div></div><div class="journey"><div><span>01</span><strong>DESCUBRIR</strong><small>Video / carrusel<br>Meta Ads</small></div><b>→</b><div><span>02</span><strong>CONSIDERAR</strong><small>Web / 360°<br>Retargeting</small></div><b>→</b><div><span>03</span><strong>BUSCAR</strong><small>Search de intención<br>Google Ads</small></div><b>→</b><div><span>04</span><strong>VALIDAR</strong><small>Filtro de presupuesto<br>CRM / asesor</small></div><b>→</b><div><span>05</span><strong>VISITAR</strong><small>Cita agendada<br>Calidad comercial</small></div></div></div>
+      </section>
+
+      <section id="keywords" class="page">
+        <div class="section-head compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> SEARCH INTELLIGENCE · 05/08</p><h1>La intención empieza con <em>una búsqueda.</em></h1><p class="section-subtitle">Investigación cualitativa para campañas Search. Keywords reales propuestas para validar con Keyword Planner: sin volúmenes ni CPC inventados.</p></div></div>
+        <div class="keyword-summary"><div><span class="label-mini">PALABRAS CLAVE</span><strong id="keywordCount">—</strong><small>Semillas estratégicas</small></div><div><span class="label-mini">CLASIFICACIONES</span><strong>04</strong><small>Marca, geografía, lujo e inversión</small></div><div><span class="label-mini">TIPOS DE MATCH</span><strong>2</strong><small>Frase + exacta para iniciar</small></div></div>
+        <div class="panel keyword-panel"><div class="panel-header"><div><p class="label-mini">EXPLORADOR DE KEYWORDS</p><h3>Lo que escribe un <i>comprador.</i></h3></div><span class="panel-detail">SIN VOLUMEN VALIDADO</span></div><div class="keyword-toolbar"><div class="input-search"><span>⌕</span><input id="kwSearch" placeholder="Buscar una palabra clave..." autocomplete="off" /></div><div class="filter-chips" id="kwFilters"><button data-filter="Todas" class="selected">Todas</button><button data-filter="Marca">Marca</button><button data-filter="Ubicación">Ubicación</button><button data-filter="Premium">Premium</button><button data-filter="Inversión">Inversión</button></div></div><div class="table-wrap"><table class="keyword-table"><thead><tr><th>PALABRA CLAVE PROPUESTA</th><th>TIPO DE INTENCIÓN</th><th>PRIORIDAD</th><th>MATCH SUGERIDO</th></tr></thead><tbody id="keywordRows"></tbody></table></div><p class="fine-print">Volumen, competencia y CPC deben consultarse en Google Keyword Planner bajo ubicación, periodo e idioma definidos. No se reportan como observados.</p></div>
+        <div class="keyword-notes"><article class="panel"><p class="label-mini">EXCLUSIONES INICIALES</p><h3>No pagar por <i>curiosos.</i></h3><div class="negative-tags"><span>arriendo</span><span>empleo</span><span>gratis</span><span>subsidio</span><span>VIS</span><span>planos gratis</span><span>habitaciones alquiler</span><span>barato</span></div><p>Revisar términos de búsqueda antes de excluir de forma amplia. Una palabra negativa mal aplicada puede eliminar búsquedas útiles.</p></article><article class="panel"><p class="label-mini">INSIGHT SEARCH</p><h3>El valor vive en el <i>detalle local.</i></h3><p>“Apartamentos nuevos Loma de las Brujas” puede indicar más cercanía al producto que “apartamentos Medellín”. La hipótesis debe medirse por visitas y oportunidades, no solo clics.</p><button data-goto="media" class="text-action">Ir a la arquitectura de medios ↗</button></article></div>
+      </section>
+
+      <section id="creatives" class="page">
+        <div class="section-head compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> CREATIVE DIRECTION · 06/08</p><h1>No mostramos metros cuadrados.<br><em>Mostramos una vida.</em></h1><p class="section-subtitle">Tres territorios creativos inspirados en los renders y atributos del proyecto. Son conceptos, no anuncios publicados.</p></div></div>
+        <div class="creative-grid">
+          <article class="creative-card"><div class="creative-image creative-one"><span class="creative-label">CONCEPTO / 01</span><div class="creative-caption"><small>PINOT · ENVIGADO</small><strong>Tu próximo capítulo merece otra vista.</strong></div></div><div class="creative-content"><span>META · REELS / STORIES</span><h3>El lujo de regresar a casa.</h3><p><b>Para:</b> Familias consolidadas y ejecutivos. Mostrar ambientes, calma, amenities, zona y la experiencia de llegar.</p><div class="creative-hook">HOOK: «Hay lugares que cambian tu manera de llegar a casa».</div></div></article>
+          <article class="creative-card"><div class="creative-image creative-two"><span class="creative-label">CONCEPTO / 02</span><div class="creative-caption"><small>DISEÑO CONTEMPORÁNEO</small><strong>Espacio para todo lo que viene.</strong></div></div><div class="creative-content"><span>META · CARRUSEL</span><h3>El espacio como privilegio.</h3><p><b>Para:</b> hogares en evolución. Secuencia de sala, área social, coworking, piscina y opciones de 87 a 164 m² aprox.</p><div class="creative-hook">HOOK: «No es tener más espacio. Es vivirlo mejor».</div></div></article>
+          <article class="creative-card"><div class="creative-image creative-three"><span class="creative-label">CONCEPTO / 03</span><div class="creative-caption"><small>PINOT · TORRE 2</small><strong>Elegir bien también es invertir.</strong></div></div><div class="creative-content"><span>GOOGLE · LANDING / SEARCH</span><h3>Una decisión con perspectiva.</h3><p><b>Para:</b> compradores patrimoniales. Resaltar ubicación, tipologías, condiciones de cuota inicial y agendamiento sin prometer rentabilidad.</p><div class="creative-hook">HOOK: «Conoce Pinot en la Loma de las Brujas».</div></div></article>
+        </div>
+        <div class="panel creative-playbook"><div class="panel-header"><div><p class="label-mini">PLAYBOOK · FORMATO × MENSAJE</p><h3>Cómo se debe ver <i>cada anuncio.</i></h3></div></div><div class="playbook-grid"><div><span>01 / PRIMEROS 3 S</span><strong>Arquitectura en movimiento</strong><p>Abrir con un render auténtico, vista o detalle. No iniciar con un catálogo de texto.</p></div><div><span>02 / CONTENIDO</span><strong>Un beneficio por pieza</strong><p>Ubicación, exclusividad, amenities o amplitud. Evitar prometer atributos no documentados.</p></div><div><span>03 / CONVERSIÓN</span><strong>Precio / rango transparentes</strong><p>Mostrar «Desde» actualizado cuando se confirme inventario; pedir presupuesto y tiempo de compra.</p></div><div><span>04 / EXPERIMENTO</span><strong>Testar motivación</strong><p>A/B entre estilo de vida y características concretas; optimizar por cita y SQL, no por CTR aislado.</p></div></div></div>
+      </section>
+
+      <section id="simulator" class="page">
+        <div class="section-head compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> MEDIA FORECAST · 07/08</p><h1>La inversión bajo <em>tu control.</em></h1><p class="section-subtitle">Modifica presupuesto, CPL y participación de Google. Todo se recalcula sin simular datos históricos inexistentes.</p></div></div>
+        <div class="simulation-layout">
+          <article class="panel slider-panel"><div class="panel-header"><div><p class="label-mini">ESCENARIO DE INVERSIÓN</p><h3>Diseña tu <i>escenario.</i></h3></div><button id="resetSim" class="reset-btn">↶ Restablecer</button></div>
+            <div class="control-group"><div><label for="budgetSlider">Presupuesto mensual</label><strong id="budgetVal">$8.500.000</strong></div><input id="budgetSlider" type="range" min="3000000" max="20000000" step="100000" value="8500000" /><div class="slider-bounds"><span>$3M</span><span>$20M</span></div></div>
+            <div class="control-group"><div><label for="cplSlider">CPL objetivo combinado</label><strong id="cplVal">$70.000</strong></div><input id="cplSlider" type="range" min="30000" max="160000" step="1000" value="70000" /><div class="slider-bounds"><span>$30.000</span><span>$160.000</span></div></div>
+            <div class="control-group"><div><label for="googleSlider">Participación Google Ads</label><strong id="googleVal">45%</strong></div><input id="googleSlider" type="range" min="15" max="75" step="5" value="45" /><div class="slider-bounds"><span>15% Google</span><span>75% Google</span></div></div>
+            <div class="slider-tip">✦ El simulador usa CPL promedio idéntico para ambas plataformas como supuesto neutral. El desempeño real puede diferir; revisa SQL y visitas antes de mover inversión.</div>
+          </article>
+          <article class="simulation-outcome"><span>RESULTADO PROYECTADO / 30 DÍAS</span><strong id="simLeadBig">121</strong><h3>leads potenciales</h3><p>Una hipótesis financiera simple, no una promesa de rendimiento.</p><div class="sim-split"><div><span>META ADS</span><strong id="simMeta">$4.675.000</strong><small id="simMetaLeads">≈ 67 leads</small></div><div><span>GOOGLE ADS</span><strong id="simGoogle">$3.825.000</strong><small id="simGoogleLeads">≈ 55 leads</small></div></div><div class="sim-gradient-line"></div></article>
+        </div>
+        <div class="panel forecast-panel"><div class="panel-header"><div><p class="label-mini">REPARTO POR CLÚSTER · MODELO DE ASIGNACIÓN</p><h3>¿Cuántas oportunidades por <i>perfil?</i></h3></div></div><div id="clusterForecast" class="forecast-bars"></div><p class="fine-print">Distribución 35% / 30% / 20% / 15% basada en hipótesis de priorización; no en tamaños auditados ni en reach real. Los números de leads se redondean preservando el total.</p></div>
+      </section>
+
+      <section id="measurement" class="page">
+        <div class="section-head compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> CONVERSION QUALITY · 08/08</p><h1>Un buen lead se <em>demuestra.</em></h1><p class="section-subtitle">La métrica que importa no termina en el formulario. Diseñamos un sistema para distinguir curiosidad, intención y oportunidad comercial.</p></div></div>
+        <div class="measurement-hero"><div><span>UNA NUEVA DEFINICIÓN DE ÉXITO</span><h2>El CPL es un comienzo.<br><i>La visita es la prueba.</i></h2></div><span class="measurement-symbol">✦</span></div>
+        <div class="section-minor"><div><span class="section-index">08</span> FUNNEL DE CALIDAD</div><span>Tasas pendientes de validación con CRM</span></div>
+        <div class="funnel-grid">
+          <div class="funnel-step"><span>ETAPA 01</span><strong>Lead</strong><p>Formulario o conversación recibida.</p><small>Meta: costo por lead</small></div>
+          <div class="funnel-step"><span>ETAPA 02</span><strong>MQL</strong><p>Interés, ubicación, presupuesto y timing consistentes.</p><small>Meta: % leads contactables</small></div>
+          <div class="funnel-step"><span>ETAPA 03</span><strong>SQL</strong><p>Asesor verifica perfil y viabilidad de negocio.</p><small>Meta: costo por SQL</small></div>
+          <div class="funnel-step"><span>ETAPA 04</span><strong>Visita</strong><p>Cita comercial efectivamente realizada.</p><small>Meta: costo por visita</small></div>
+          <div class="funnel-step"><span>ETAPA 05</span><strong>Separación</strong><p>Decisión de compra registrada y atribuible.</p><small>Meta: costo por separación</small></div>
+        </div>
+        <div class="measurement-grid"><article class="panel"><div class="panel-header"><div><p class="label-mini">PREGUNTAS DEL FORMULARIO</p><h3>Calificar sin <i>fricción excesiva.</i></h3></div></div><div class="question-list"><div><b>01</b><span>¿En qué rango de inversión buscas tu apartamento?</span></div><div><b>02</b><span>¿En qué plazo planeas tomar una decisión?</span></div><div><b>03</b><span>¿Es para vivir, cambiar de hogar o invertir?</span></div><div><b>04</b><span>¿Quieres agendar una visita o conocer tipologías?</span></div></div></article><article class="panel"><div class="panel-header"><div><p class="label-mini">MÍNIMO DE INSTRUMENTACIÓN</p><h3>Datos que sí necesitamos.</h3></div></div><div class="measurement-checks"><p>✓ UTMs con plataforma, campaña y clúster</p><p>✓ Conversiones mejoradas / consentimiento</p><p>✓ Eventos: lead, MQL, SQL, cita y visita</p><p>✓ CRM conectado a Google y Meta cuando sea viable</p><p>✓ Tablero semanal de calidad, no solo CPL</p></div></article></div>
+        <div class="source-footer"><p>FUENTES & TRANSPARENCIA</p><span>Información del proyecto: <a href="https://www.pinot.com.co/" target="_blank" rel="noopener">Pinot ↗</a> · <a href="https://www.adquirir.com.co/proyectos" target="_blank" rel="noopener">Adquirir ↗</a> · <a href="https://arquitecturayconcreto.com/proyectos/antioquia/pinot/" target="_blank" rel="noopener">Arquitectura y Concreto ↗</a>. Los presupuestos y CPL son indicados por el cliente; el resto del plan es un modelo estratégico sin acceso a Ads Manager, CRM ni Keyword Planner.</span></div>
+      </section>
+    </main>
+    <footer class="global-footer"><span>PINOT · LUXURY AUDIENCE & MEDIA INTELLIGENCE</span><span>HECHO PARA DECIDIR MEJOR · OCT 2026</span></footer>
+  </div>
+</div>
+</body>
+</html>
