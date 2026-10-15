@@ -32,6 +32,8 @@ El dashboard es **una propuesta estratégica, no un reporte de resultados en tie
 
 Sitio estático con HTML5, CSS3 y JavaScript nativo. Utiliza **Leaflet 1.9.4 y OpenStreetMap** para el mapa, Google Fonts y renders de la web pública de Pinot. No requiere dependencias npm, build ni claves de API.
 
+La capa visual `editorial.css` unifica las ocho secciones con tipografía Cormorant Garamond, tonos vino y marfil y una portada editorial con galería manual. Las imágenes optimizadas se sirven desde `assets/`; sus fuentes están documentadas en `assets/SOURCES.md`. La navegación móvil incluye cierre con Escape, control de foco y fondo bloqueado; las animaciones respetan la preferencia de movimiento reducido.
+
 ## Uso local
 
 Abrir `index.html` o servirlo mediante `python3 -m http.server 8080`. Navegar a `http://localhost:8080`. El mapa, fuentes e imágenes requieren conexión a internet.
@@ -46,4 +48,4 @@ Vincular el repositorio `santiagoherrera1886-ai/pinot` al proyecto **pinot** del
 - https://www.adquirir.com.co/proyectos
 - https://arquitecturayconcreto.com/proyectos/antioquia/pinot/
 
-Última actualización de estrategia: 14 octubre 2026.
+Última actualización de estrategia: 14 octubre 2026. Rediseño visual: 15 octubre 2026.

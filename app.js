@@ -11,7 +11,7 @@
   const clusters = [
     {
       name:"Familias consolidadas",short:"Familias consolidadas",key:"01",age:"35–55 años",weight:35,
-      image:"https://static.wixstatic.com/media/2d148f_0fa05e71d692499fbcd754f76fa7b6ad~mv2.jpg",
+      image:"./assets/pinot-dining.webp",
       summary:"Más espacios, tranquilidad y una vida que crece con ellos.",
       quote:"«Queremos un hogar donde nuestra familia disfrute más cada día»",
       why:"Compradores que están evaluando un cambio residencial y ponderan espacios, servicios, localización y condiciones del proyecto. El ángulo de compra es bienestar cotidiano.",
@@ -23,7 +23,7 @@
     },
     {
       name:"Ejecutivos y empresarios",short:"Ejecutivos",key:"02",age:"30–49 años",weight:30,
-      image:"https://static.wixstatic.com/media/2d148f_cab8bfae85354f128978f56ac276a479~mv2.jpg",
+      image:"./assets/pinot-lobby.webp",
       summary:"Diseño, privacidad y ubicación para una nueva etapa.",
       quote:"«Mi casa tiene que estar a la altura de cómo quiero vivir»",
       why:"Perfiles que valoran comodidad, eficiencia de su tiempo, arquitectura y ubicación. No se asume profesión o ingresos a partir de la navegación.",
@@ -35,7 +35,7 @@
     },
     {
       name:"Patrimonio e inversión",short:"Patrimoniales",key:"03",age:"40–65 años",weight:20,
-      image:"https://static.wixstatic.com/media/2d148f_d4cbccdf130746ba8c99e2c813fff1c8~mv2.jpg",
+      image:"./assets/pinot-exterior.webp",
       summary:"Una decisión inmobiliaria con argumentos concretos.",
       quote:"«Quiero entender el proyecto, su ubicación y las condiciones antes de decidir»",
       why:"Personas que comparan características, constructor, fiducia, plazos y opciones de compra. Evitar prometer valorización o retornos no comprobados.",
@@ -47,7 +47,7 @@
     },
     {
       name:"Upgrade residencial",short:"Cambio de hogar",key:"04",age:"32–58 años",weight:15,
-      image:"https://static.wixstatic.com/media/2d148f_30f8e8426c8a40e7a5f9fa114bcb3255~mv2.jpg",
+      image:"./assets/pinot-bedroom.webp",
       summary:"Pasar de un buen apartamento a uno extraordinario.",
       quote:"«Ya tenemos vivienda, ahora buscamos algo que se sienta diferente»",
       why:"Compradores que comparan vivienda actual con una nueva propuesta premium y consideran mudarse a Envigado o al sur del Valle de Aburrá.",
@@ -91,15 +91,58 @@
   const allKeywords=Object.entries(kwGroups).flatMap(([group,rows])=>rows.map(([phrase,priority,match])=>({group,phrase,priority,match})));
   const pageLabels={summary:"VISIÓN EJECUTIVA",audiences:"CLÚSTERES PREMIUM",territory:"MAPA DE OPORTUNIDAD",media:"ARQUITECTURA DE MEDIOS",keywords:"KEYWORD INTELLIGENCE",creatives:"CREATIVE STUDIO",simulator:"SIMULADOR",measurement:"CALIDAD & MEDICIÓN"};
 
+  function setMenu(open, returnFocus=false){
+    const mobile=window.matchMedia("(max-width: 900px)").matches;
+    open=Boolean(open && mobile);
+    $("#sidebar").classList.toggle("open",open);
+    $("#sidebar").inert=mobile && !open;
+    $("#navBackdrop").hidden=!open;
+    $("#mobileToggle").setAttribute("aria-expanded",String(open));
+    $(".main-column").inert=open;
+    document.body.classList.toggle("menu-open",open);
+    if(open) $("#mobileClose").focus();
+    else if(returnFocus) $("#mobileToggle").focus();
+  }
   function navigate(){
     let name=location.hash.replace("#","") || "summary";
-    if(!pageLabels[name]) name="summary";
+    if(name==="mainContent"){$("#mainContent").focus();return;}
+    if(!Object.prototype.hasOwnProperty.call(pageLabels,name)) name="summary";
     $$(".page").forEach(el=>el.classList.toggle("active",el.id===name));
-    $$(".nav-link").forEach(el=>el.classList.toggle("active",el.dataset.nav===name));
+    $$(".nav-link").forEach(el=>{
+      const active=el.dataset.nav===name;
+      el.classList.toggle("active",active);
+      if(active) el.setAttribute("aria-current","page");
+      else el.removeAttribute("aria-current");
+    });
     $("#breadcrumb").textContent=pageLabels[name];
-    $("#sidebar").classList.remove("open");
+    document.title="PINOT | "+pageLabels[name];
+    setMenu(false);
     window.scrollTo({top:0,behavior:"instant"});
     if(name==="territory") window.setTimeout(initializeMap,100);
+  }
+  function setupGallery(){
+    const slides=[
+      {image:"./assets/pinot-living.webp",alt:"Render oficial de la sala de Pinot, con balcón y vista a la ciudad",title:"Una nueva<br><i>perspectiva.</i>",caption:"Sala & vista · Render oficial"},
+      {image:"./assets/pinot-exterior.webp",alt:"Render oficial de la fachada y zonas comunes de Pinot al atardecer",title:"Una ubicación.<br><i>Otro nivel.</i>",caption:"Arquitectura · Render oficial"},
+      {image:"./assets/pinot-lobby.webp",alt:"Render oficial del lobby de Pinot",title:"Cada detalle<br><i>hace la diferencia.</i>",caption:"Lobby · Render oficial"}
+    ];
+    let active=0;
+    function show(direction){
+      active=(active+direction+slides.length)%slides.length;
+      const slide=slides[active];
+      $("#heroImage").src=slide.image;
+      $("#heroImage").alt=slide.alt;
+      $("#galleryTitle").innerHTML=slide.title;
+      $("#galleryDescription").textContent=slide.caption;
+      $("#galleryCount").textContent=String(active+1).padStart(2,"0")+" / 03";
+    }
+    $("#galleryPrev").addEventListener("click",()=>show(-1));
+    $("#galleryNext").addEventListener("click",()=>show(1));
+    $(".project-gallery").addEventListener("keydown",e=>{
+      if(e.key==="ArrowLeft" || e.key==="ArrowRight"){
+        e.preventDefault();show(e.key==="ArrowLeft"?-1:1);
+      }
+    });
   }
   function renderClusters(){
     $("#clusterCards").innerHTML=clusters.map((c,i)=>'<button class="cluster-card '+(state.activeCluster===i?'selected':'')+'" data-cluster="'+i+'" aria-pressed="'+(state.activeCluster===i)+'"><div class="cluster-photo"><img loading="lazy" src="'+c.image+'" alt="Imagen arquitectónica de Pinot"><span class="cluster-num">CLÚSTER / '+c.key+'</span></div><span>'+c.age+' · HIPÓTESIS</span><h3>'+c.name+'</h3><p>'+c.summary+'</p><div class="cluster-foot"><strong>'+c.weight+'% de inversión sugerida</strong><span>↗</span></div></button>').join("");
@@ -160,12 +203,21 @@
     $("#metaSum").textContent=millions(meta);$("#googleSum").textContent=millions(google);
     $("#metaPercent").textContent=(100-g)+"%";$("#googlePercent").textContent=g+"%";
     $("#allocationRing").style.background="conic-gradient(#644051 0 "+(100-g)+"%,#d7bda6 "+(100-g)+"% 100%)";
+    $("#allocationRing").setAttribute("role","img");
+    $("#allocationRing").setAttribute("aria-label","Distribución: Meta "+(100-g)+"%, Google "+g+"%. Inversión total "+money(b)+" pesos");
     $(".ring-center strong").textContent=millions(b);
     $("#mediaTotal").textContent=money(b);$("#mediaMeta").textContent=money(meta);$("#mediaGoogle").textContent=money(google);
+    $("#mediaMetaShare").textContent=(100-g)+"% del escenario";$("#mediaGoogleShare").textContent=g+"% del escenario";
     $("#simLeadBig").textContent=fmt(leads);
     $("#simMeta").textContent=money(meta);$("#simGoogle").textContent=money(google);
     $("#simMetaLeads").textContent="≈ "+fmt(metaLeads)+" leads";$("#simGoogleLeads").textContent="≈ "+fmt(googleLeads)+" leads";
     $(".sim-gradient-line").style.background="linear-gradient(90deg,#ac7e89 "+(100-g)+"%,#e0c5b0 "+(100-g)+"%)";
+    ["budget","cpl","google"].forEach(key=>{
+      const slider=$("#"+key+"Slider");
+      const progress=(Number(slider.value)-Number(slider.min))/(Number(slider.max)-Number(slider.min))*100;
+      slider.style.setProperty("--range-progress",progress+"%");
+      slider.setAttribute("aria-valuetext",key==="google"?g+" por ciento":money(state[key])+" pesos");
+    });
     renderCampaigns();renderForecast(leads);
   }
   function setupSimulator(){
@@ -197,12 +249,29 @@
   }
   function setup(){
     $$(".page button[data-goto]").forEach(b=>b.addEventListener("click",()=>{location.hash="#"+b.dataset.goto}));
-    $("#mobileToggle").addEventListener("click",()=>$("#sidebar").classList.toggle("open"));
+    $("#mobileToggle").addEventListener("click",()=>setMenu(!$("#sidebar").classList.contains("open")));
+    $("#mobileClose").addEventListener("click",()=>setMenu(false,true));
+    $("#navBackdrop").addEventListener("click",()=>setMenu(false,true));
+    $$(".side-nav a, .brand-mark").forEach(link=>link.addEventListener("click",()=>{
+      if($("#sidebar").classList.contains("open")){setMenu(false);$("#mainContent").focus();}
+    }));
+    window.matchMedia("(max-width: 900px)").addEventListener("change",()=>setMenu(false));
+    document.addEventListener("keydown",e=>{
+      if(!$("#sidebar").classList.contains("open")) return;
+      if(e.key==="Escape"){e.preventDefault();setMenu(false,true);}
+      if(e.key==="Tab"){
+        const items=$$("a[href], button",$("#sidebar"));
+        const first=items[0],last=items[items.length-1];
+        if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
+        else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
+      }
+    });
+    $("#kwSearch").setAttribute("aria-label","Buscar palabras clave");
     $("#kwSearch").addEventListener("input",e=>{state.kwQuery=e.target.value;renderKeywords()});
     $$("#kwFilters button").forEach(b=>b.addEventListener("click",()=>{state.kwFilter=b.dataset.filter;renderKeywords()}));
     $("#exportBtn").addEventListener("click",downloadCsv);
     window.addEventListener("hashchange",navigate);
-    renderClusters();renderZones();renderKeywords();setupSimulator();navigate();
+    renderClusters();renderZones();renderKeywords();setupSimulator();setupGallery();navigate();
   }
   document.addEventListener("DOMContentLoaded",setup);
 })();
