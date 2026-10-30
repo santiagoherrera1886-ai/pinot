@@ -6,7 +6,7 @@
   const fmt = n => new Intl.NumberFormat("es-CO", {maximumFractionDigits:0}).format(n);
   const money = n => "$" + fmt(n);
   const millions = n => "$" + (n/1e6).toLocaleString("es-CO", {minimumFractionDigits:1,maximumFractionDigits:2}) + "M";
-  const defaults = {budget:8500000,cpl:70000,google:45};
+  const defaults = {budget:8500000,cpl:70000,google:42};
   const state = {...defaults, activeCluster:0, kwFilter:"Todas", kwQuery:""};
   const clusters = [
     {
@@ -67,12 +67,12 @@
     {name:"Sabaneta",city:"Sur del Valle de Aburrá",lat:6.1502,lng:-75.6162,priority:"TEST"}
   ];
   const campaigns=[
-    {platform:"Meta Ads",name:"Prospección · Lifestyle",group:"Descubrimiento",share:32/55,channel:"meta",desc:"Reels y carruseles según motivación. Probar amplitud geográfica pertinente y señales de intención; no basarse únicamente en intereses.",kpi:"MQL / visita",icon:"◎"},
-    {platform:"Meta Ads",name:"Remarketing · Alta intención",group:"Consideración",share:13/55,channel:"meta",desc:"Usuarios que visitaron producto, tipologías o recorrido 360°, con ventanas y señales consentidas. Evitar frecuencia excesiva.",kpi:"SQL / costo por cita",icon:"↺"},
-    {platform:"Meta Ads",name:"Laboratorio creativo A/B",group:"Aprendizaje",share:10/55,channel:"meta",desc:"Testar diseño vs. ubicación vs. espacios, formatos verticales y formularios con preguntas de calificación.",kpi:"Calidad por mensaje",icon:"✦"},
-    {platform:"Google Ads",name:"Search · Loma de las Brujas",group:"Intención local",share:28/45,channel:"google",desc:"Grupos por Envigado, Las Brujas, proyectos nuevos y apartamentos premium. Concordancia exacta y frase al inicio.",kpi:"SQL / visita",icon:"⌕"},
-    {platform:"Google Ads",name:"Search · Premium",group:"Demanda calificada",share:10/45,channel:"google",desc:"Consultas de apartamento de lujo, rango de precios, compra en Envigado. Filtrar términos no pertinentes.",kpi:"Costo por lead útil",icon:"⌕"},
-    {platform:"Google Ads",name:"Search · Marca Pinot",group:"Protección de marca",share:7/45,channel:"google",desc:"Capturar búsquedas por Pinot, torre 2 y comprar Pinot Envigado, con copy coherente y página de destino directa.",kpi:"Citas por búsqueda",icon:"P"}
+    {platform:"Meta Ads",name:"HERO 1",group:"Perfil Pinot Hero",share:20/58,channel:"meta",desc:"Creatividad aspiracional, renders oficiales y propuesta de valor de Pinot. Segmentación: Perfil Pinot Hero.",kpi:"Lead calificado / visita",icon:"✧",image:"./assets/pinot-living.webp"},
+    {platform:"Meta Ads",name:"BBD",group:"BBD · por validar",share:18/58,channel:"meta",desc:"Campaña BBD: validar definición y segmentación exacta con el equipo antes de activarla. Mantener nomenclatura del flow.",kpi:"CPL / contacto efectivo",icon:"◎",image:"./assets/pinot-dining.webp"},
+    {platform:"Meta Ads",name:"CARGOS",group:"Perfil Pinot CARGOS",share:10/58,channel:"meta",desc:"Mensajes ejecutivos y atributos del proyecto; validar audiencias disponibles y evitar deducir capacidad de compra por cargo.",kpi:"MQL / cita",icon:"◇",image:"./assets/pinot-lobby.webp"},
+    {platform:"Meta Ads",name:"MARCAS",group:"Perfil Pinot Marcas",share:10/58,channel:"meta",desc:"Afinidades de marca y estilo de vida premium como hipótesis creativa, sujetas a las opciones reales de Ads Manager.",kpi:"MQL / cita",icon:"✦",image:"./assets/pinot-bedroom.webp"},
+    {platform:"Google Ads",name:"PMAX",group:"Performance Max",share:12/42,channel:"google",desc:"Activación multimodal con señales propias y recursos visuales de Pinot; revisar calidad y exclusiones por campaña.",kpi:"SQL / oportunidad",icon:"↗",image:"./assets/pinot-exterior.webp"},
+    {platform:"Google Ads",name:"KW",group:"Keywords · Search",share:30/42,channel:"google",desc:"Búsquedas de alta intención sobre Pinot, Envigado y apartamentos premium. Validar CPC y volúmenes con Keyword Planner.",kpi:"SQL / visita",icon:"⌕",image:"./assets/pinot-living.webp"}
   ];
   const kwGroups={
     "Marca":[
@@ -89,7 +89,7 @@
     ]
   };
   const allKeywords=Object.entries(kwGroups).flatMap(([group,rows])=>rows.map(([phrase,priority,match])=>({group,phrase,priority,match})));
-  const pageLabels={summary:"VISIÓN EJECUTIVA",audiences:"CLÚSTERES PREMIUM",territory:"MAPA DE OPORTUNIDAD",media:"ARQUITECTURA DE MEDIOS",keywords:"KEYWORD INTELLIGENCE",creatives:"CREATIVE STUDIO",simulator:"SIMULADOR",measurement:"CALIDAD & MEDICIÓN"};
+  const pageLabels={summary:"VISIÓN EJECUTIVA",audiences:"CLÚSTERES PREMIUM",territory:"MAPA DE OPORTUNIDAD",media:"ARQUITECTURA DE MEDIOS",flow:"FLOW NOVIEMBRE 2026",keywords:"KEYWORD INTELLIGENCE",creatives:"CREATIVE STUDIO",simulator:"SIMULADOR",measurement:"CALIDAD & MEDICIÓN"};
 
   function setMenu(open, returnFocus=false){
     const mobile=window.matchMedia("(max-width: 900px)").matches;
@@ -219,6 +219,7 @@
       slider.setAttribute("aria-valuetext",key==="google"?g+" por ciento":money(state[key])+" pesos");
     });
     renderCampaigns();renderForecast(leads);
+    window.dispatchEvent(new CustomEvent("pinot:planning",{detail:{budget:b,cpl:c,google:g,campaigns}}));
   }
   function setupSimulator(){
     const budget=$("#budgetSlider"),cpl=$("#cplSlider"),google=$("#googleSlider");
@@ -238,8 +239,8 @@
       ["Aviso","Las cifras son proyecciones. No corresponden a plataformas conectadas."],
       [],["Clúster","Peso (%)","Leads proyectados"],
       ...clusters.map((c,i)=>[c.name,c.weight,leadsByCluster(leads)[i]]),
-      [],["Campaña","Plataforma","Presupuesto propuesto COP"],
-      ...campaigns.map(c=>[c.name,c.platform,Math.round(state.budget*(c.channel==="google"?state.google/100:1-state.google/100)*c.share)]),
+      [],["Campaña","Plataforma","Segmentación","Share sobre total (%)","Presupuesto propuesto COP","CPL objetivo COP","Leads proyectados (aprox.)"],
+      ...campaigns.map(c=>{const amount=Math.round(state.budget*(c.channel==="google"?state.google/100:1-state.google/100)*c.share);return [c.name,c.platform,c.group,Math.round(amount/state.budget*1000)/10,amount,state.cpl,Math.round(amount/state.cpl)];}),
       [],["Keyword propuesta","Categoría","Prioridad","Concordancia sugerida"],
       ...allKeywords.map(k=>[k.phrase,k.group,k.priority,k.match])
     ];

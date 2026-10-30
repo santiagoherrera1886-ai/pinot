@@ -12,10 +12,12 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="./editorial.css?v=20261015" />
+  <link rel="stylesheet" href="./flow-nov.css?v=20261030" />
   <link rel="icon" href="./assets/pinot-emblem.png" type="image/png" />
   <link rel="preload" href="./assets/pinot-living.webp" as="image" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="./app.js" defer></script>
+  <script src="./flow-nov.js?v=20261030" defer></script>
+  <script src="./app.js?v=20261030" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Saltar al contenido</a>
@@ -34,6 +36,7 @@
         <a href="#audiences" data-nav="audiences" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 4a3 3 0 0 1 0 6M18 14a5 5 0 0 1 3 4v2"/></svg></span><span>Clústeres premium</span><span class="nav-arrow">↗</span></a>
         <a href="#territory" data-nav="territory" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span>Mapa de oportunidad</span><span class="nav-arrow">↗</span></a>
         <a href="#media" data-nav="media" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10h4v10m3 0V4h4v16m3 0V7h4v13M2 20h21"/></svg></span><span>Arquitectura de medios</span><span class="nav-arrow">↗</span></a>
+        <a href="#flow" data-nav="flow" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h5l3 6h5l5 6M16 6h5v5M16 18h5v-5"/><circle cx="3" cy="6" r="1.5"/><circle cx="21" cy="18" r="1.5"/></svg></span><span>Flow noviembre 2026</span><span class="nav-arrow">✦</span></a>
         <a href="#keywords" data-nav="keywords" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg></span><span>Keyword intelligence</span><span class="nav-arrow">↗</span></a>
         <a href="#creatives" data-nav="creatives" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 4-5 4 5"/></svg></span><span>Creative studio</span><span class="nav-arrow">↗</span></a>
         <a href="#simulator" data-nav="simulator" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="#35212b"/><circle cx="16" cy="12" r="2" fill="#35212b"/><circle cx="8" cy="18" r="2" fill="#35212b"/></svg></span><span>Simulador de inversión</span><span class="nav-arrow">↗</span></a>
@@ -52,7 +55,7 @@
   <div class="main-column">
     <header class="topbar">
       <div class="topbar-left"><button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">☰</button><span class="topbar-breadcrumb">PINOT <span>/</span> <b id="breadcrumb">VISIÓN EJECUTIVA</b></span></div>
-      <div class="topbar-right"><span class="data-chip"><span class="pulse"></span> ESCENARIO DE PLANIFICACIÓN</span><span class="period-chip">OCT 2026</span><button id="exportBtn" class="header-action" title="Descargar proyección en CSV">↓ <span>Exportar plan</span></button></div>
+      <div class="topbar-right"><span class="data-chip"><span class="pulse"></span> ESCENARIO DE PLANIFICACIÓN</span><span class="period-chip">NOV 2026</span><button id="exportBtn" class="header-action" title="Descargar proyección en CSV">↓ <span>Exportar plan</span></button></div>
     </header>
 
     <main class="main-content" id="mainContent" tabindex="-1">
@@ -63,7 +66,7 @@
             <p class="eyebrow"><span class="eyebrow-line"></span> UNA ESTRATEGIA CON INTENCIÓN</p>
             <h1>El lugar<br>correcto.<br><em>Las personas<br>correctas.</em></h1>
             <p>Un proyecto extraordinario merece llegar a quienes saben valorarlo. Conectamos el deseo de vivir mejor con la decisión de comprar.</p>
-            <div class="hero-actions"><a class="primary-action" href="#audiences">Explorar audiencias <span>↗</span></a><a class="secondary-action" href="#simulator">Simular inversión <span>→</span></a></div>
+            <div class="hero-actions"><a class="primary-action" href="#audiences">Explorar audiencias <span>↗</span></a><a class="secondary-action" href="#simulator">Simular inversión <span>→</span></a><a class="flow-hero-cta" href="#flow">✦ Ver flow noviembre <span>↗</span></a></div>
             <div class="hero-footnote"><span class="tiny-star" aria-hidden="true">✳</span><span>4 perfiles. 2 plataformas.<br><strong>Una oportunidad para conectar mejor.</strong></span></div>
           </div>
           <figure class="project-gallery" aria-label="Galería de renders oficiales del proyecto Pinot" aria-roledescription="carrusel">
@@ -73,6 +76,7 @@
           </figure>
         </div>
         <div class="project-specs"><span>LOMA DE LAS BRUJAS</span><span>87–164 m² aprox.</span><span>Lanzamiento torre 2</span><a href="https://www.pinot.com.co/" target="_blank" rel="noopener">Conocer el proyecto <span>↗</span></a></div>
+        <a class="flow-teaser" href="#flow"><div><span>PINOT · MEDIA FLIGHT 11/26</span><h3>La estrategia toma <i>forma.</i></h3><p>6 campañas · 2 plataformas · un objetivo: compradores de verdad.</p></div><div class="flow-teaser-right"><span>EXPLORAR EL FLOW</span><b>↗</b></div></a>
         <div class="section-minor"><div><span class="section-index">01 /</span> LA ESTRATEGIA EN NÚMEROS</div><a href="#simulator">Ajustar escenario <span>↗</span></a></div>
         <div class="metrics-grid">
           <article class="metric-card"><div class="metric-top">INVERSIÓN MENSUAL <span>↗</span></div><strong id="summaryBudget">$8,5 <small>M</small></strong><div class="metric-bottom">COP · Google + Meta</div></article>
@@ -121,10 +125,90 @@
 
       <section id="media" class="page">
         <div class="section-head compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> MEDIA ARCHITECTURE · 04/08</p><h1>Dos plataformas. <em>Una intención.</em></h1><p class="section-subtitle">Google captura demanda activa; Meta construye deseo, interés y retorno. Cada campaña tiene un trabajo específico.</p></div></div>
-        <div class="media-summary"><div><span class="label-mini">PRESUPUESTO ACTUAL DEL MODELO</span><strong id="mediaTotal">$8.500.000</strong><small>Mensual · editable en simulador</small></div><span class="media-divider"></span><div><span class="label-mini">META ADS</span><strong id="mediaMeta">$4.675.000</strong><small id="mediaMetaShare">55% del escenario</small></div><span class="media-divider"></span><div><span class="label-mini">GOOGLE ADS</span><strong id="mediaGoogle">$3.825.000</strong><small id="mediaGoogleShare">45% del escenario</small></div></div>
+        <div class="media-summary"><div><span class="label-mini">PRESUPUESTO ACTUAL DEL MODELO</span><strong id="mediaTotal">$8.500.000</strong><small>Mensual · editable en simulador</small></div><span class="media-divider"></span><div><span class="label-mini">META ADS</span><strong id="mediaMeta">$4.930.000</strong><small id="mediaMetaShare">58% del escenario</small></div><span class="media-divider"></span><div><span class="label-mini">GOOGLE ADS</span><strong id="mediaGoogle">$3.570.000</strong><small id="mediaGoogleShare">42% del escenario</small></div></div>
         <div class="section-minor"><div><span class="section-index">04</span> CAMPAÑAS PROPUESTAS</div><span>Distribución orientativa; no gasto observado</span></div>
         <div class="campaign-grid" id="campaignGrid"></div>
         <div class="panel"><div class="panel-header"><div><p class="label-mini">EL RECORRIDO IDEAL</p><h3>Del primer impacto a la <i>visita.</i></h3></div></div><div class="journey"><div><span>01</span><strong>DESCUBRIR</strong><small>Video / carrusel<br>Meta Ads</small></div><b>→</b><div><span>02</span><strong>CONSIDERAR</strong><small>Web / 360°<br>Retargeting</small></div><b>→</b><div><span>03</span><strong>BUSCAR</strong><small>Search de intención<br>Google Ads</small></div><b>→</b><div><span>04</span><strong>VALIDAR</strong><small>Filtro de presupuesto<br>CRM / asesor</small></div><b>→</b><div><span>05</span><strong>VISITAR</strong><small>Cita agendada<br>Calidad comercial</small></div></div></div>
+      </section>
+
+
+      <section id="flow" class="page flow-page" aria-label="Flow de medios de noviembre 2026">
+        <div class="flow-root">
+          <div class="flow-masthead"><span><b class="flow-star">✳</b> THE PINOT MEDIA EDITION <i>/ 2026</i></span><span>ESTRATEGIA · NOVIEMBRE</span></div>
+          <div class="flow-cover">
+            <div class="flow-cover-copy">
+              <div class="flow-kicker"><span class="flow-diamond">✦</span> THE NOVEMBER PERFORMANCE FLOW <span class="flow-cover-number">01 — 06</span></div>
+              <h1>Diseñamos<br>el <em>deseo.</em><br>Capturamos<br>la <em>intención.</em></h1>
+              <p>Una arquitectura de medios a la altura de Pinot. De la primera inspiración al comprador que agenda su visita.</p>
+              <div class="flow-cover-bottom"><span>ENVIGADO · LOMA DE LAS BRUJAS</span><span>PLANIFICACIÓN 30 DÍAS ↗</span></div>
+            </div>
+            <div class="flow-cover-photo"><img src="./assets/pinot-living.webp" loading="eager" alt="Render oficial del interior y la vista del proyecto Pinot" /><span class="flow-photo-caption">PINOT · UNA NUEVA PERSPECTIVA</span><span class="flow-photo-round">P<br>✳</span></div>
+          </div>
+          <div class="flow-ticker"><span>4 CLÚSTERES PRIORITARIOS</span><span>◈</span><span>TICKET DE FILTRO $1.300 M+</span><span>◈</span><span>LEADS CALIFICADOS / VISITAS</span><span>◈</span><span>META + GOOGLE</span></div>
+
+          <div class="flow-kpis">
+            <article><div class="flow-kpi-name"><span>01 / CAPITAL</span><span>↗</span></div><strong id="flowKpiBudget">$8.500.000</strong><small>INVERSIÓN TOTAL · COP</small></article>
+            <article><div class="flow-kpi-name"><span>02 / EFICIENCIA</span><span>◎</span></div><strong id="flowKpiCpl">$70.000</strong><small>CPL OBJETIVO COMBINADO</small></article>
+            <article class="flow-kpi-highlight"><div class="flow-kpi-name"><span>03 / RESULTADO</span><span>✳</span></div><strong id="flowKpiLeads">121 <i>leads</i></strong><small>ESTIMACIÓN · NO RESULTADOS REALES</small></article>
+            <article><div class="flow-kpi-name"><span>04 / ECOSISTEMA</span><span>↗</span></div><strong>02 <i>medios</i></strong><small>06 CAMPAÑAS ACTIVAS EN EL PLAN</small></article>
+          </div>
+
+          <div class="flow-section-heading"><span>01 / ESTRATEGIA DE INVERSIÓN</span><h2>Una distribución <i>con intención.</i></h2><p>Meta genera deseo y reconocimiento de la propuesta. Google captura señales concretas de búsqueda y decisión.</p></div>
+          <div class="flow-channel-grid">
+            <article class="flow-channel flow-meta">
+              <div class="flow-channel-overlay"></div>
+              <div class="flow-channel-top"><span class="flow-channel-symbol">∞</span><span>01 / DISCOVERY</span></div>
+              <h3>Meta <i>Ads.</i></h3>
+              <div class="flow-channel-numbers"><strong id="flowMetaShare">58%</strong><div><b id="flowMetaBudget">$4.930.000</b><small>4 CAMPAÑAS · 58% DEL TOTAL</small></div></div>
+              <p>Inspirar · Segmentar · Convertir</p>
+            </article>
+            <article class="flow-channel flow-google">
+              <div class="flow-channel-overlay"></div>
+              <div class="flow-channel-top"><span class="flow-google-g">G</span><span>02 / INTENT</span></div>
+              <h3>Google <i>Ads.</i></h3>
+              <div class="flow-channel-numbers"><strong id="flowGoogleShare">42%</strong><div><b id="flowGoogleBudget">$3.570.000</b><small>2 CAMPAÑAS · 42% DEL TOTAL</small></div></div>
+              <p>Buscar · Considerar · Contactar</p>
+            </article>
+          </div>
+          <div class="flow-mix-legend"><span>ALOCACIÓN MENSUAL</span><div class="flow-mix-bars" id="flowMixBar"><div style="width:58%"></div><div style="width:42%"></div></div><span id="flowMixLabel">58% META &nbsp; / &nbsp; 42% GOOGLE</span></div>
+
+          <div class="flow-section-heading"><span>02 / CUSTOMER JOURNEY</span><h2>Cinco pasos. <i>Una decisión.</i></h2><p>Las plataformas trabajan juntas para convertir la atención en una conversación comercial de valor.</p></div>
+          <div class="flow-path">
+            <div class="flow-path-stage"><span class="flow-stage-index">01</span><b class="flow-stage-icon">✧</b><strong>DESCUBRIR</strong><p>Inspiración<br>Meta / Reels</p><small>PRIMER IMPACTO</small></div>
+            <span class="flow-path-arrow" aria-hidden="true">→</span>
+            <div class="flow-path-stage"><span class="flow-stage-index">02</span><b class="flow-stage-icon">◎</b><strong>CONSIDERAR</strong><p>Hero · Cargos<br>Marcas · BBD</p><small>INTERÉS</small></div>
+            <span class="flow-path-arrow" aria-hidden="true">→</span>
+            <div class="flow-path-stage"><span class="flow-stage-index">03</span><b class="flow-stage-icon">⌕</b><strong>BUSCAR</strong><p>Search + PMax<br>Google Ads</p><small>INTENCIÓN ACTIVA</small></div>
+            <span class="flow-path-arrow" aria-hidden="true">→</span>
+            <div class="flow-path-stage"><span class="flow-stage-index">04</span><b class="flow-stage-icon">◇</b><strong>CALIFICAR</strong><p>Lead / formulario<br>Asesor + CRM</p><small>FILTRO DE PERFIL</small></div>
+            <span class="flow-path-arrow" aria-hidden="true">→</span>
+            <div class="flow-path-stage flow-path-last"><span class="flow-stage-index">05</span><b class="flow-stage-icon">↗</b><strong>VISITAR</strong><p>Agendamiento<br>Oportunidad real</p><small>MÉTRICA CLAVE</small></div>
+          </div>
+
+          <div class="flow-section-heading flow-heading-campaign"><span>03 / MEDIA ALLOCATION</span><h2>Seis campañas. <i>Una narrativa.</i></h2><p>Los presupuestos corresponden al flow enviado. La proyección de leads se calcula con el CPL objetivo combinado de $70.000.</p></div>
+          <div class="flow-campaign-toolbar"><div class="flow-filter-group" aria-label="Filtrar campañas"><button class="flow-filter active" data-flow-filter="all" aria-pressed="true">Todas <span>06</span></button><button class="flow-filter" data-flow-filter="meta" aria-pressed="false">Meta <span>04</span></button><button class="flow-filter" data-flow-filter="google" aria-pressed="false">Google <span>02</span></button></div><span>PLANEACIÓN / NO INVERSIÓN EJECUTADA</span></div>
+          <div id="flowCampaignGrid" class="flow-campaign-container" aria-live="polite"></div>
+
+          <div class="flow-section-heading"><span>04 / PERFORMANCE LAB</span><h2>Un plan que puedes <i>mover.</i></h2><p>Cambia inversión, CPL o mix para explorar escenarios. El resto del tablero se actualiza con los mismos valores.</p></div>
+          <div class="flow-lab">
+            <div class="flow-lab-controls">
+              <div class="flow-lab-top"><div><span>EL SIMULADOR DE PINOT</span><h3>Tu siguiente <i>escenario.</i></h3></div><button type="button" id="flowReset">↶ Reiniciar</button></div>
+              <label class="flow-control"><span>Presupuesto mensual <strong id="flowBudgetText">$8.500.000</strong></span><input id="flowBudgetSlider" type="range" min="3000000" max="20000000" step="100000" value="8500000" /><small><span>$3 M</span><span>$20 M</span></small></label>
+              <label class="flow-control"><span>CPL objetivo <strong id="flowCplText">$70.000</strong></span><input id="flowCplSlider" type="range" min="30000" max="160000" step="1000" value="70000" /><small><span>$30.000</span><span>$160.000</span></small></label>
+              <label class="flow-control"><span>Participación Google <strong id="flowGoogleText">42%</strong></span><input id="flowGoogleSlider" type="range" min="15" max="75" step="1" value="42" /><small><span>15%</span><span>75%</span></small></label>
+              <p>✦ Escenarios orientativos, no promesa de CPL ni desempeño de campañas.</p>
+            </div>
+            <div class="flow-lab-result">
+              <span>PROYECCIÓN MENSUAL / NOVIEMBRE 2026</span>
+              <div class="flow-result-hero"><strong id="flowResultLeads">121</strong><div><b>leads</b><small>potenciales<br>proyectados</small></div></div>
+              <div class="flow-lab-channel"><span><b>∞ META ADS</b><small id="flowResultMetaBudget">$4.930.000</small></span><strong id="flowResultMetaLeads">70 leads</strong></div>
+              <div class="flow-lab-channel"><span><b>G GOOGLE ADS</b><small id="flowResultGoogleBudget">$3.570.000</small></span><strong id="flowResultGoogleLeads">51 leads</strong></div>
+              <button type="button" id="flowExport" class="flow-export">↓ Exportar plan de medios <span>↗</span></button>
+            </div>
+          </div>
+          <div class="flow-endnote"><span>EL ÉXITO NO TERMINA EN UN LEAD.</span><strong>El verdadero lujo es llegar<br><i>a las personas correctas.</i></strong><a href="#measurement">Ver medición de calidad ↗</a></div>
+          <div class="flow-disclaimer">METODOLOGÍA — Proyección = inversión / CPL objetivo. Las participaciones y asignaciones se basan en el presupuesto suministrado para noviembre; MQL, SQL y visitas requieren medición real de CRM. “BBD” es la nomenclatura recibida y su segmentación debe validarse antes de pautar. El ticket de $1.300M+ es un criterio comercial de calificación, no una promesa de precio mínimo.</div>
+        </div>
       </section>
 
       <section id="keywords" class="page">
@@ -150,10 +234,10 @@
           <article class="panel slider-panel"><div class="panel-header"><div><p class="label-mini">ESCENARIO DE INVERSIÓN</p><h3>Diseña tu <i>escenario.</i></h3></div><button id="resetSim" class="reset-btn">↶ Restablecer</button></div>
             <div class="control-group"><div><label for="budgetSlider">Presupuesto mensual</label><strong id="budgetVal">$8.500.000</strong></div><input id="budgetSlider" type="range" min="3000000" max="20000000" step="100000" value="8500000" /><div class="slider-bounds"><span>$3M</span><span>$20M</span></div></div>
             <div class="control-group"><div><label for="cplSlider">CPL objetivo combinado</label><strong id="cplVal">$70.000</strong></div><input id="cplSlider" type="range" min="30000" max="160000" step="1000" value="70000" /><div class="slider-bounds"><span>$30.000</span><span>$160.000</span></div></div>
-            <div class="control-group"><div><label for="googleSlider">Participación Google Ads</label><strong id="googleVal">45%</strong></div><input id="googleSlider" type="range" min="15" max="75" step="5" value="45" /><div class="slider-bounds"><span>15% Google</span><span>75% Google</span></div></div>
+            <div class="control-group"><div><label for="googleSlider">Participación Google Ads</label><strong id="googleVal">45%</strong></div><input id="googleSlider" type="range" min="15" max="75" step="1" value="42" /><div class="slider-bounds"><span>15% Google</span><span>75% Google</span></div></div>
             <div class="slider-tip">✦ El simulador usa CPL promedio idéntico para ambas plataformas como supuesto neutral. El desempeño real puede diferir; revisa SQL y visitas antes de mover inversión.</div>
           </article>
-          <article class="simulation-outcome"><span>RESULTADO PROYECTADO / 30 DÍAS</span><strong id="simLeadBig">121</strong><h3>leads potenciales</h3><p>Una hipótesis financiera simple, no una promesa de rendimiento.</p><div class="sim-split"><div><span>META ADS</span><strong id="simMeta">$4.675.000</strong><small id="simMetaLeads">≈ 67 leads</small></div><div><span>GOOGLE ADS</span><strong id="simGoogle">$3.825.000</strong><small id="simGoogleLeads">≈ 55 leads</small></div></div><div class="sim-gradient-line"></div></article>
+          <article class="simulation-outcome"><span>RESULTADO PROYECTADO / 30 DÍAS</span><strong id="simLeadBig">121</strong><h3>leads potenciales</h3><p>Una hipótesis financiera simple, no una promesa de rendimiento.</p><div class="sim-split"><div><span>META ADS</span><strong id="simMeta">$4.930.000</strong><small id="simMetaLeads">≈ 70 leads</small></div><div><span>GOOGLE ADS</span><strong id="simGoogle">$3.570.000</strong><small id="simGoogleLeads">≈ 51 leads</small></div></div><div class="sim-gradient-line"></div></article>
         </div>
         <div class="panel forecast-panel"><div class="panel-header"><div><p class="label-mini">REPARTO POR CLÚSTER · MODELO DE ASIGNACIÓN</p><h3>¿Cuántas oportunidades por <i>perfil?</i></h3></div></div><div id="clusterForecast" class="forecast-bars"></div><p class="fine-print">Distribución 35% / 30% / 20% / 15% basada en hipótesis de priorización; no en tamaños auditados ni en reach real. Los números de leads se redondean preservando el total.</p></div>
       </section>
@@ -173,7 +257,7 @@
         <div class="source-footer"><p>FUENTES & TRANSPARENCIA</p><span>Información del proyecto: <a href="https://www.pinot.com.co/" target="_blank" rel="noopener">Pinot ↗</a> · <a href="https://www.adquirir.com.co/proyectos" target="_blank" rel="noopener">Adquirir ↗</a> · <a href="https://arquitecturayconcreto.com/proyectos/antioquia/pinot/" target="_blank" rel="noopener">Arquitectura y Concreto ↗</a>. Los presupuestos y CPL son indicados por el cliente; el resto del plan es un modelo estratégico sin acceso a Ads Manager, CRM ni Keyword Planner.</span></div>
       </section>
     </main>
-    <footer class="global-footer"><span>PINOT · LUXURY AUDIENCE & MEDIA INTELLIGENCE</span><span>HECHO PARA DECIDIR MEJOR · OCT 2026</span></footer>
+    <footer class="global-footer"><span>PINOT · LUXURY AUDIENCE & MEDIA INTELLIGENCE</span><span>HECHO PARA DECIDIR MEJOR · NOV 2026</span></footer>
   </div>
 </div>
 </body>
