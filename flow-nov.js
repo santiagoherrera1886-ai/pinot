@@ -4,7 +4,7 @@
   const $ = id => document.getElementById(id);
   const fmt = n => new Intl.NumberFormat("es-CO",{maximumFractionDigits:0}).format(n);
   const money = n => "$"+fmt(Math.round(n));
-  let current = {budget:8500000,cpl:70000,google:42,campaigns:[]};
+  let current = {budget:8500000,cpl:70000,google:30,campaigns:[]};
   let filter = "all";
   const campaignImages = {
     "HERO 1":"./assets/pinot-living.webp",
@@ -93,7 +93,7 @@
     $("flowReset").addEventListener("click",()=>{
       $("budgetSlider").value=8500000;
       $("cplSlider").value=70000;
-      dispatchSlider("Google",42);
+      dispatchSlider("Google",30);
     });
     $("flowExport").addEventListener("click",()=>$("exportBtn").click());
     render();

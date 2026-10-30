@@ -6,7 +6,7 @@
   const fmt = n => new Intl.NumberFormat("es-CO", {maximumFractionDigits:0}).format(n);
   const money = n => "$" + fmt(n);
   const millions = n => "$" + (n/1e6).toLocaleString("es-CO", {minimumFractionDigits:1,maximumFractionDigits:2}) + "M";
-  const defaults = {budget:8500000,cpl:70000,google:42};
+  const defaults = {budget:8500000,cpl:70000,google:30};
   const state = {...defaults, activeCluster:0, kwFilter:"Todas", kwQuery:""};
   const clusters = [
     {
