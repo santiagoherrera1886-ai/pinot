@@ -49,3 +49,16 @@ Vincular el repositorio `santiagoherrera1886-ai/pinot` al proyecto **pinot** del
 - https://arquitecturayconcreto.com/proyectos/antioquia/pinot/
 
 Última actualización de estrategia: 14 octubre 2026. Rediseño visual: 15 octubre 2026.
+
+
+## Metas mensuales del Apps Script (2026)
+
+La sección **Metas por mes** de la visión ejecutiva conserva el modelo de metas iniciales del código `ADQUIRIR - FLOW_ADQUIRIR DATA MARTS` (V7, noviembre). No reemplaza ni simula datos reales; el dashboard continúa siendo una planeación estática independiente de Google Sheets.
+
+| Período | Meta presupuesto total | Meta presupuesto para CPL | Meta leads | Google presupuesto total | Google presupuesto para CPL | Google leads |
+|---|---:|---:|---:|---:|---:|---:|
+| Septiembre 2026 | 5.560.000 | 4.060.000 | 59 | 2.940.000 | 2.940.000 | 59 |
+| Octubre 2026 | 5.560.000 | 4.060.000 | 220 | 2.940.000 | 2.940.000 | 160 |
+| Noviembre 2026 | 5.950.000 | 5.950.000 | 85 | 2.550.000 | 2.550.000 | 36 |
+
+En septiembre y octubre, la diferencia de COP 1.500.000 de Meta corresponde a una activación de alcance/frecuencia excluida del cálculo de CPL, de acuerdo con el Apps Script. El simulador independiente de noviembre mantiene la hipótesis de COP 70.000 CPL combinado y 70% Meta / 30% Google. El redondeo por plataforma de 85 + 36 leads da un CPL ponderado de COP 70.248 aprox.

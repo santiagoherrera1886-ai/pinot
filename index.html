@@ -13,11 +13,13 @@
   <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="./editorial.css?v=20261015" />
   <link rel="stylesheet" href="./flow-nov.css?v=20261030" />
+  <link rel="stylesheet" href="./planning-2026.css?v=20261105" />
   <link rel="icon" href="./assets/pinot-emblem.png" type="image/png" />
   <link rel="preload" href="./assets/pinot-living.webp" as="image" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
   <script src="./flow-nov.js?v=20261030" defer></script>
   <script src="./app.js?v=20261030" defer></script>
+  <script src="./planning-2026.js?v=20261105" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Saltar al contenido</a>
@@ -86,6 +88,49 @@
           <article class="metric-card"><div class="metric-top">TICKET DE FILTRO <span>✧</span></div><strong>$1.300 <small>M+</small></strong><div class="metric-bottom">Criterio comercial, no precio mínimo</div><div class="metric-deco"></div></article>
         </div>
         <p class="model-note">Proyección mensual basada en supuestos editables. No representa resultados de campañas en vivo.</p>
+
+        <section class="pinot-plan2026" aria-labelledby="pinotPlanTitle">
+          <div class="pinot-plan2026-head">
+            <div>
+              <p class="pinot-plan2026-eyebrow">METAS_MENSUALES / PLANEACIÓN 2026</p>
+              <h2 id="pinotPlanTitle">Tres meses. <em>Una visión clara.</em></h2>
+              <p>Consulta las metas de septiembre, octubre y noviembre del mart de Adquirir, sin confundir proyección con resultados reales.</p>
+            </div>
+            <div class="pinot-plan2026-switch" role="tablist" aria-label="Seleccionar mes de planeación">
+              <button type="button" role="tab" data-plan-period="2026-09" id="pinot-plan-tab-2026-09" aria-selected="false" aria-controls="pinot-plan-detail">SEP 2026</button>
+              <button type="button" role="tab" data-plan-period="2026-10" id="pinot-plan-tab-2026-10" aria-selected="false" aria-controls="pinot-plan-detail">OCT 2026</button>
+              <button type="button" role="tab" data-plan-period="2026-11" id="pinot-plan-tab-2026-11" aria-selected="true" aria-controls="pinot-plan-detail" class="is-current">NOV 2026</button>
+            </div>
+          </div>
+          <div id="pinot-plan-detail" class="pinot-plan2026-detail" role="tabpanel" aria-labelledby="pinot-plan-tab-2026-11">
+            <div class="pinot-plan2026-kpis">
+              <article><span>PRESUPUESTO TOTAL</span><strong id="pinotPlanBudget">$8.500.000</strong><small>Meta + Google</small></article>
+              <article><span>LEADS PROYECTADOS</span><strong id="pinotPlanLeads">121</strong><small id="pinotPlanLeadPeriod">Noviembre · meta mensual</small></article>
+              <article><span>PRESUPUESTO PARA CPL</span><strong id="pinotPlanCplBudget">$8.500.000</strong><small>Sin inversión excluida</small></article>
+              <article><span>CPL OBJETIVO PONDERADO</span><strong id="pinotPlanCpl">$70.248</strong><small>Presupuesto CPL / leads</small></article>
+            </div>
+            <div class="pinot-plan2026-bottom">
+              <div class="pinot-plan2026-table-wrap">
+                <table class="pinot-plan2026-table">
+                  <thead><tr><th>PLATAFORMA</th><th>PRESUPUESTO TOTAL</th><th>PARA CPL</th><th>LEADS</th><th>CPL OBJETIVO</th><th>MIX</th></tr></thead>
+                  <tbody id="pinotPlanRows">
+                    <tr><th scope="row">META ADS</th><td>$5.950.000</td><td>$5.950.000</td><td>85</td><td>$70.000</td><td>70%</td></tr>
+                    <tr><th scope="row">GOOGLE ADS</th><td>$2.550.000</td><td>$2.550.000</td><td>36</td><td>$70.833</td><td>30%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pinot-plan2026-split">
+                <div class="pinot-plan2026-split-head"><span>DISTRIBUCIÓN POR PLATAFORMA</span><strong id="pinotPlanMix">70% / 30%</strong></div>
+                <div class="pinot-plan2026-bars" aria-hidden="true"><span id="pinotPlanMetaBar" style="width:70%"></span><span id="pinotPlanGoogleBar" style="width:30%"></span></div>
+                <div class="pinot-plan2026-legend"><span><i></i> Meta Ads</span><span><i></i> Google Ads</span></div>
+                <p id="pinotPlanNotes">Noviembre: presupuesto 70% Meta / 30% Google; objetivo orientativo de 121 leads.</p>
+                <button type="button" id="pinotPlanDownload" class="pinot-plan2026-download">↓ Exportar metas del mes (CSV)</button>
+              </div>
+            </div>
+          </div>
+          <p class="pinot-plan2026-disclaimer">Fuente: metas iniciales del Apps Script Adquirir V7. Esta sección muestra planeación mensual registrada, no datos de campañas en vivo. El simulador estratégico de arriba continúa trabajando sobre noviembre.</p>
+        </section>
+
         <div class="dashboard-two">
           <article class="panel investment-panel">
             <div class="panel-header"><div><p class="label-mini">DISTRIBUCIÓN MENSUAL</p><h3>Un mix pensado para <i>convertir.</i></h3></div><span class="panel-detail">META × GOOGLE</span></div>
