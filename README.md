@@ -1,6 +1,12 @@
 # PINOT · Audience & Media Intelligence
 
-Aplicación estática del proyecto Pinot en Envigado. Conserva la identidad editorial, los perfiles de audiencia, el mapa, keywords, creatividades y medición. Incluye flows propuestos para **diciembre de 2026 y enero de 2027**, sustentados en el histórico reciente de `Flow_Adquirir_`.
+Aplicación estática del proyecto Pinot en Envigado. Conserva la identidad de Pinot, los perfiles de audiencia, el mapa, keywords, creatividades y medición. Incluye flows propuestos para **diciembre de 2026 y enero de 2027**, sustentados en el histórico reciente de `Flow_Adquirir_`.
+
+## Interfaz de cristal
+
+La capa `pinot-premium.css` aplica una estética inspirada en interfaces iOS: paneles translúcidos, desenfoque de fondo, controles en cápsulas y tarjetas redondeadas. Mantiene el color vino y los renders del proyecto, con variantes adaptables a celular, teclado y movimiento reducido.
+
+El flow tiene cuatro vistas: Plan de medios, Audiencias, Calendario y Sustento. Las tarjetas abren su segmentación; las fases del calendario revelan inversión y foco. Los detalles y tablas conservan la información completa. El presupuesto se personaliza en un panel desplegable y sigue compartido con resumen, medios y simulador. Los gráficos de evidencia comparan la misma métrica y ventana temporal.
 
 ## Flows mensuales
 
@@ -52,6 +58,7 @@ La inversión en formularios se incrementa frente a lo observado. El modelo es u
 - HTML, CSS y JavaScript nativo, sin build ni dependencias de ejecución propias.
 - `flow-model.js`: cálculo compartido, sin DOM.
 - `flows-2027.js` / `flows-2027.css`: interfaz mensual y exportación.
+- `pinot-premium.css`: diseño adaptable, tipografía y superficies de cristal.
 - `app.js`, `flow-nov.js`, `planning-2026.js`: navegación, archivo y herramientas existentes.
 - `node --test tests/flow-model.test.cjs`: referencias, tendencia reciente, separación de métricas, presupuesto cero, escenarios y conservación de totales con distintos presupuestos y mixes.
 - Verificación visual: navegación, meses independientes, presupuesto exacto aplicado, filtros, sincronización resumen/medios/simulador y descarga CSV.

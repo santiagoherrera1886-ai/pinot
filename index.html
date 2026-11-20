@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="./flow-nov.css?v=20261030" />
   <link rel="stylesheet" href="./planning-2026.css?v=20261105" />
   <link rel="stylesheet" href="./flows-2027.css?v=20261120" />
+  <link rel="stylesheet" href="./pinot-premium.css?v=20261120-2" />
   <link rel="icon" href="./assets/pinot-emblem.png" type="image/png" />
   <link rel="preload" href="./assets/pinot-living.webp" as="image" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
@@ -23,7 +24,7 @@
   <script src="./planning-2026.js?v=20261105" defer></script>
   <script src="./flow-history.js?v=20261120" defer></script>
   <script src="./flow-model.js?v=20261120" defer></script>
-  <script src="./flows-2027.js?v=20261120" defer></script>
+  <script src="./flows-2027.js?v=20261120-2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Saltar al contenido</a>
@@ -61,18 +62,18 @@
   <div class="main-column">
     <header class="topbar">
       <div class="topbar-left"><button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">☰</button><span class="topbar-breadcrumb">PINOT <span>/</span> <b id="breadcrumb">VISIÓN EJECUTIVA</b></span></div>
-      <div class="topbar-right"><span class="data-chip"><span class="pulse"></span> ESCENARIO DE PLANIFICACIÓN</span><span class="period-chip">NOV 2026</span><button id="exportBtn" class="header-action" title="Descargar proyección en CSV">↓ <span>Exportar plan</span></button></div>
+      <div class="topbar-right"><span class="data-chip"><span class="pulse"></span> ESCENARIO DE PLANIFICACIÓN</span><span class="period-chip">NOV 2026</span><button id="exportBtn" class="header-action" title="Descargar proyección en CSV"><svg class="export-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg><span>Exportar plan</span></button></div>
     </header>
 
     <main class="main-content" id="mainContent" tabindex="-1">
       <section id="summary" class="page active">
-        <div class="edition-line"><span>THE PINOT INTELLIGENCE LAB</span><span>ENVIGADO, ANTIOQUIA <i>↗</i></span></div>
+        <div class="edition-line"><span>PINOT / ESTRATEGIA & CRECIMIENTO</span><span>ENVIGADO, ANTIOQUIA <i>↗</i></span></div>
         <div class="editorial-hero">
           <div class="editorial-copy">
             <p class="eyebrow"><span class="eyebrow-line"></span> UNA ESTRATEGIA CON INTENCIÓN</p>
             <h1>El lugar<br>correcto.<br><em>Las personas<br>correctas.</em></h1>
             <p>Un proyecto extraordinario merece llegar a quienes saben valorarlo. Conectamos el deseo de vivir mejor con la decisión de comprar.</p>
-            <div class="hero-actions"><a class="primary-action" href="#audiences">Explorar audiencias <span>↗</span></a><a class="secondary-action" href="#simulator">Simular inversión <span>→</span></a><a class="flow-hero-cta" href="#flow">Ver flows diciembre / enero</a></div>
+            <div class="hero-actions"><a class="primary-action" href="#flow">Explorar flows 2026 / 2027</a><a class="secondary-action" href="#simulator">Simular inversión</a></div>
             <div class="hero-footnote"><span class="tiny-star" aria-hidden="true">✳</span><span>4 perfiles. 2 plataformas.<br><strong>Una oportunidad para conectar mejor.</strong></span></div>
           </div>
           <figure class="project-gallery" aria-label="Galería de renders oficiales del proyecto Pinot" aria-roledescription="carrusel">
