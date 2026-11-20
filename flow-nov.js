@@ -20,8 +20,9 @@
     const entries=campaigns.map((c,i)=>{
       const share=c.share*(c.channel==="google"?google/100:1-google/100);
       const spend=budget*share, raw=spend/cpl;
-      return {...c,i,share,spend,raw,leads:Math.floor(raw)};
+      return {...c,i,totalShare:share,spend,raw,leads:Math.floor(raw)};
     });
+    if(!entries.length)return {entries,total:0};
     const total=Math.round(budget/cpl);
     let outstanding=total-entries.reduce((s,c)=>s+c.leads,0);
     const ordered=entries.slice().sort((a,b)=>(b.raw-b.leads)-(a.raw-a.leads)||a.i-b.i);

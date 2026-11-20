@@ -89,7 +89,7 @@
     ]
   };
   const allKeywords=Object.entries(kwGroups).flatMap(([group,rows])=>rows.map(([phrase,priority,match])=>({group,phrase,priority,match})));
-  const pageLabels={summary:"VISIÓN EJECUTIVA",audiences:"CLÚSTERES PREMIUM",territory:"MAPA DE OPORTUNIDAD",media:"ARQUITECTURA DE MEDIOS",flow:"FLOW NOVIEMBRE 2026",keywords:"KEYWORD INTELLIGENCE",creatives:"CREATIVE STUDIO",simulator:"SIMULADOR",measurement:"CALIDAD & MEDICIÓN"};
+  const pageLabels={summary:"VISIÓN EJECUTIVA",audiences:"CLÚSTERES PREMIUM",territory:"MAPA DE OPORTUNIDAD",media:"ARQUITECTURA DE MEDIOS",flow:"FLOWS DICIEMBRE / ENERO", "flow-nov":"FLOW NOVIEMBRE 2026", "simulator-legacy":"SIMULADOR NOVIEMBRE 2026",keywords:"KEYWORD INTELLIGENCE",creatives:"CREATIVE STUDIO",simulator:"SIMULADOR",measurement:"CALIDAD & MEDICIÓN"};
 
   function setMenu(open, returnFocus=false){
     const mobile=window.matchMedia("(max-width: 900px)").matches;
@@ -145,7 +145,7 @@
     });
   }
   function renderClusters(){
-    $("#clusterCards").innerHTML=clusters.map((c,i)=>'<button class="cluster-card '+(state.activeCluster===i?'selected':'')+'" data-cluster="'+i+'" aria-pressed="'+(state.activeCluster===i)+'"><div class="cluster-photo"><img loading="lazy" src="'+c.image+'" alt="Imagen arquitectónica de Pinot"><span class="cluster-num">CLÚSTER / '+c.key+'</span></div><span>'+c.age+' · HIPÓTESIS</span><h3>'+c.name+'</h3><p>'+c.summary+'</p><div class="cluster-foot"><strong>'+c.weight+'% de inversión sugerida</strong><span>↗</span></div></button>').join("");
+    $("#clusterCards").innerHTML=clusters.map((c,i)=>'<button class="cluster-card '+(state.activeCluster===i?'selected':'')+'" data-cluster="'+i+'" aria-pressed="'+(state.activeCluster===i)+'"><div class="cluster-photo"><img loading="lazy" src="'+c.image+'" alt="Imagen arquitectónica de Pinot"><span class="cluster-num">CLÚSTER / '+c.key+'</span></div><span>'+c.age+' · HIPÓTESIS</span><h3>'+c.name+'</h3><p>'+c.summary+'</p><div class="cluster-foot"><strong>'+c.weight+'% de prioridad creativa orientativa</strong><span>↗</span></div></button>').join("");
     $$(".cluster-card").forEach(btn=>btn.addEventListener("click",()=>{state.activeCluster=Number(btn.dataset.cluster);renderClusters();$("#clusterDetail").scrollIntoView({block:"nearest",behavior:"smooth"});}));
     let c=clusters[state.activeCluster];
     $("#metaInterests").innerHTML='<div class="interest-content"><div><span class="label-mini">CLÚSTER SELECCIONADO</span><h4>'+c.name+'</h4><p>Prueba estos términos en Ads Manager. Si no existen, elige alternativas verificables o deja la segmentación amplia.</p></div><div class="interest-chips">'+c.interests.map(v=>'<span>✧ '+v+'</span>').join("")+'</div></div>';
@@ -198,16 +198,6 @@
     const b=state.budget,c=state.cpl,g=state.google,meta=b*(1-g/100),google=b*g/100,leads=Math.round(b/c);
     const metaLeads=Math.round(leads*(1-g/100)),googleLeads=leads-metaLeads;
     $("#budgetVal").textContent=money(b);$("#cplVal").textContent=money(c);$("#googleVal").textContent=g+"%";
-    $("#summaryBudget").innerHTML=(b/1e6).toLocaleString("es-CO",{minimumFractionDigits:1,maximumFractionDigits:1}).replace(/^/,"$")+" <small>M</small>";
-    $("#summaryCpl").textContent=money(c);$("#summaryLeads").innerHTML=fmt(leads)+' <small>/mes</small>';
-    $("#metaSum").textContent=millions(meta);$("#googleSum").textContent=millions(google);
-    $("#metaPercent").textContent=(100-g)+"%";$("#googlePercent").textContent=g+"%";
-    $("#allocationRing").style.background="conic-gradient(#644051 0 "+(100-g)+"%,#d7bda6 "+(100-g)+"% 100%)";
-    $("#allocationRing").setAttribute("role","img");
-    $("#allocationRing").setAttribute("aria-label","Distribución: Meta "+(100-g)+"%, Google "+g+"%. Inversión total "+money(b)+" pesos");
-    $(".ring-center strong").textContent=millions(b);
-    $("#mediaTotal").textContent=money(b);$("#mediaMeta").textContent=money(meta);$("#mediaGoogle").textContent=money(google);
-    $("#mediaMetaShare").textContent=(100-g)+"% del escenario";$("#mediaGoogleShare").textContent=g+"% del escenario";
     $("#simLeadBig").textContent=fmt(leads);
     $("#simMeta").textContent=money(meta);$("#simGoogle").textContent=money(google);
     $("#simMetaLeads").textContent="≈ "+fmt(metaLeads)+" leads";$("#simGoogleLeads").textContent="≈ "+fmt(googleLeads)+" leads";
@@ -218,7 +208,7 @@
       slider.style.setProperty("--range-progress",progress+"%");
       slider.setAttribute("aria-valuetext",key==="google"?g+" por ciento":money(state[key])+" pesos");
     });
-    renderCampaigns();renderForecast(leads);
+    renderForecast(leads);
     window.dispatchEvent(new CustomEvent("pinot:planning",{detail:{budget:b,cpl:c,google:g,campaigns}}));
   }
   function setupSimulator(){
@@ -230,6 +220,7 @@
   }
   function csvQuote(value){const s=String(value);return '"'+s.replace(/"/g,'""')+'"'}
   function downloadCsv(){
+    if(window.PinotMonthlyFlow && !["#flow-nov","#simulator-legacy"].includes(location.hash)){window.PinotMonthlyFlow.exportCsv();return;}
     const leads=Math.round(state.budget/state.cpl),meta=state.budget*(1-state.google/100);
     const rows=[
       ["PINOT - PROYECCIÓN ESTRATÉGICA / NO DATA REAL","Valor"],

@@ -1,64 +1,71 @@
-# PINOT · Luxury Audience & Media Intelligence
+# PINOT · Audience & Media Intelligence
 
-Dashboard editorial interactivo para planificar la captación digital de compradores de alto valor para **Pinot Apartamentos**, ubicado en **Loma de las Brujas, Envigado (Antioquia)**.
+Aplicación estática del proyecto Pinot en Envigado. Conserva la identidad editorial, los perfiles de audiencia, el mapa, keywords, creatividades y medición. Incluye flows propuestos para **diciembre de 2026 y enero de 2027**, sustentados en el histórico reciente de `Flow_Adquirir_`.
 
-## Contenido
+## Flows mensuales
 
-- **Visión ejecutiva:** KPIs, insight de calidad, inversión por plataforma, fotografía del producto.
-- **4 clústeres:** familias consolidadas, ejecutivos, patrimonio/inversión y upgrade residencial. Motivación, edad descriptiva, señales, mensajes, piezas y biblioteca de intereses sugeridos de Meta.
-- **Territorios:** mapa interactivo real de OpenStreetMap con centros aproximados de sectores y notas de prioridad.
-- **Arquitectura de medios:** seis campañas Meta + Google con reparto y roles diferentes.
-- **Keyword intelligence:** 44 palabras clave semilla organizadas en marca, ubicación, premium e inversión; prioridad, match y negativas iniciales.
-- **Creative studio:** tres conceptos de anuncios con imágenes publicadas por Pinot y guía de formato.
-- **Simulador:** presupuesto mensual entre COP $3M y $20M, CPL entre $30k y $160k, mix Google/Meta editable, asignación por clúster y exportación CSV.
-- **Medición:** funnel Lead → MQL → SQL → visita → separación, formulario y checklist de integración.
+- `#flow`: selector de mes, inversión por campaña, costos por objetivo, calendario de 31 días, segmentaciones, exclusiones, mensajes, metodología y fuentes.
+- `#summary`: visión ejecutiva sincronizada con el mes y escenario seleccionados.
+- `#media`: asignación del mismo modelo por campaña.
+- `#simulator`: presupuesto libre, mix Meta/Google y escenarios base, conservador y eficiente. Guarda ajustes por mes en el navegador.
+- `#flow-nov` y `#simulator-legacy`: archivo de la propuesta anterior de noviembre, identificado como modelo de CPL uniforme.
+- Las metas de septiembre–noviembre siguen disponibles en el resumen, en un bloque histórico desplegable.
+- CSV por mes y escenario: presupuesto, objetivo, resultados separados, calendario, segmentaciones y justificación.
 
-## Supuestos y límites
+### Valores iniciales (propuesta, no inversión autorizada)
 
-| Variable | Valor inicial |
-| --- | --- |
-| Presupuesto | COP $8.500.000 / mes |
-| CPL **objetivo**, no real | COP $70.000 |
-| Leads proyectados | 121 aprox. (8.500.000 / 70.000, redondeado) |
-| Mix de inversión | Meta 55% / Google 45% |
-| Clústeres | 35% / 30% / 20% / 15% |
-| Umbral comercial de segmentación | COP $1.300 millones |
+| Mes | Presupuesto COP | Meta / Google | Formularios Meta | Conversiones Google | Conversaciones Meta |
+| --- | ---: | --- | ---: | ---: | ---: |
+| Diciembre 2026 | 8.500.000 | 75% / 25% | 136 | 12 | 255 |
+| Enero 2027 | 8.500.000 | 70% / 30% | 150 | 16 | 185 |
 
-**Importante:** la cifra de COP $1.300 millones es el criterio comercial solicitado para calificar prospectos, **no** el precio mínimo oficial de toda la oferta. Adquirir comunica precios desde aproximadamente COP $1.248 millones; validar precio, tipología e inventario antes de ponerlo en campañas.
+Los tres tipos de resultados **no son personas únicas ni leads calificados**. Se mantienen separados. Search conserva la inversión de Google y PMax queda en reserva en el plan base. Esto no cambia ninguna cuenta publicitaria.
 
-El dashboard es **una propuesta estratégica, no un reporte de resultados en tiempo real**. No está conectado a Meta Ads, Google Ads, Google Keyword Planner ni CRM. Los CPL, leads, allocations y prioridades de zonas son hipótesis de trabajo. Las edades describen buyer personas y no son filtros obligatorios ni prueba de capacidad de compra. Los intereses sugeridos deben comprobarse dentro de Meta Ads Manager. No hay cifras falsas de reach, búsquedas o CPC. El mapa usa coordenadas de centros de sector aproximadas.
+## Datos y procedencia
 
-## Tecnología
+Fuente indicada por el usuario: https://docs.google.com/spreadsheets/d/1H9nR4-TJou1yCEajTTDk57ffb_W581v9mT9I2Ch6NNg/edit
 
-Sitio estático con HTML5, CSS3 y JavaScript nativo. Utiliza **Leaflet 1.9.4 y OpenStreetMap** para el mapa, Google Fonts y renders de la web pública de Pinot. No requiere dependencias npm, build ni claves de API.
+Revisión: **20 de noviembre de 2026**. Referencia de costos: octubre completo y noviembre hasta el corte disponible del día 19.
 
-La capa visual `editorial.css` unifica las ocho secciones con tipografía Cormorant Garamond, tonos vino y marfil y una portada editorial con galería manual. Las imágenes optimizadas se sirven desde `assets/`; sus fuentes están documentadas en `assets/SOURCES.md`. La navegación móvil incluye cierre con Escape, control de foco y fondo bloqueado; las animaciones respetan la preferencia de movimiento reducido.
+- `Reporte Meta!A1:AA800`: campos Invertido, Leads Form, Mensajes/WA. Se excluyen registros del 20 de noviembre; el reporte se había actualizado el 20/11 a las 07:51.
+- `MART_DIARIO!A1:W540`: inversión y conversiones de Search/PMax por campaña. Actualización del mart: 19/11 a las 12:20. Contraste de últimas filas con `Google Pinot!A1:K4`.
+- `METAS_MENSUALES!A16:J17`: presupuesto de referencia de noviembre, COP 8.500.000. No hay presupuesto aprobado de diciembre/enero en la fuente consultada.
+- `MART_RESUMEN!A100:Y107`: contexto y contraste. El agregado Meta de noviembre estaba desactualizado frente al detalle: 294 resultados / COP 2.297.921 frente a 316 resultados / COP 2.389.223. Se usa el detalle más reciente, sin sumar ambas versiones.
+- Octubre Meta: COP 3.343.553, 125 formularios y 272 mensajes. Noviembre Meta al corte: COP 2.389.223, 45 formularios y 271 mensajes. No se considera cerrado noviembre ni se asumen horas de corte idénticas entre plataformas.
 
-## Uso local
+`flow-history.js` guarda únicamente agregados de la fuente, sin datos personales ni credenciales. No hay lectura automática del Sheets. No se editó la hoja de origen.
 
-Abrir `index.html` o servirlo mediante `python3 -m http.server 8080`. Navegar a `http://localhost:8080`. El mapa, fuentes e imágenes requieren conexión a internet.
+## Cálculo
 
-## Despliegue Vercel
+1. Costo ponderado por línea = suma de inversión / suma de resultados del tipo correspondiente. No es promedio de CPL diarios.
+2. Referencia prudente = máximo entre el costo ponderado y el costo de noviembre. Protege contra la subida reciente de Marcas y Cargos.
+3. Objetivo base = referencia × 1,20 (diciembre), o × 1,10 (enero), redondeado al alza a COP 1.000; conversaciones a COP 100. Son supuestos de planificación, no estacionalidad probada.
+4. Conservador = costo base × 1,25. Eficiente = costo base × 0,85, con el mismo redondeo.
+5. Resultados = inversión de cada línea / su costo objetivo. Reparto de redondeo preserva el total por tipo de resultado. La asignación monetaria conserva cada peso y el calendario suma el presupuesto mensual.
 
-Vincular el repositorio `santiagoherrera1886-ai/pinot` al proyecto **pinot** del equipo **sa-ntiago**. Configurar **Framework Preset: Other**, **Root Directory: /**, sin Build Command y sin Output Directory personalizada. Cada push a `main` desplegará producción *solo si* la vinculación y permisos están configurados.
+Las campañas de formulario usan su inversión completa y solo sus formularios como denominador. Los mensajes adicionales no se proyectan. BBD usa toda su inversión para proyectar conversaciones y no suma sus formularios extra. La campaña de alcance Vive Fest se incluye en la tabla de gasto observado pero se excluye de los costos de captación. Google reporta conversiones cuya definición comercial requiere validación. No hay clics comparables de Google, tasas CRM o alcance deduplicado; no se inventan sesiones, ventas o visitas.
 
-## Fuentes del producto
+La inversión en formularios se incrementa frente a lo observado. El modelo es una sensibilidad aritmética: requiere validar capacidad de entrega, audiencia y calidad antes de ejecutar el presupuesto. El calendario responde a una hipótesis operativa de atención comercial.
+
+## Implementación y verificación
+
+- HTML, CSS y JavaScript nativo, sin build ni dependencias de ejecución propias.
+- `flow-model.js`: cálculo compartido, sin DOM.
+- `flows-2027.js` / `flows-2027.css`: interfaz mensual y exportación.
+- `app.js`, `flow-nov.js`, `planning-2026.js`: navegación, archivo y herramientas existentes.
+- `node --test tests/flow-model.test.cjs`: referencias, tendencia reciente, separación de métricas, presupuesto cero, escenarios y conservación de totales con distintos presupuestos y mixes.
+- Verificación visual: navegación, meses independientes, presupuesto exacto aplicado, filtros, sincronización resumen/medios/simulador y descarga CSV.
+
+## Publicación
+
+Repositorio: `santiagoherrera1886-ai/pinot`, rama `main`. Proyecto Vercel: `pinot` del equipo `sa-ntiago`, sitio https://pinot-inky.vercel.app/.
+
+Vercel sirve el sitio estático desde la raíz (Framework Other). Los directorios temporales de preview no forman parte de la publicación.
+
+## Producto y recursos
+
+Renders existentes en `assets/`; fuentes originales en `assets/SOURCES.md`. Las características, precios e inventario del producto deben confirmarse antes de usarlos en anuncios. El ticket comercial histórico de COP 1.300 millones es un criterio de calificación y no el precio mínimo oficial.
 
 - https://www.pinot.com.co/
 - https://www.adquirir.com.co/proyectos
 - https://arquitecturayconcreto.com/proyectos/antioquia/pinot/
-
-Última actualización de estrategia: 14 octubre 2026. Rediseño visual: 15 octubre 2026.
-
-
-## Metas mensuales del Apps Script (2026)
-
-La sección **Metas por mes** de la visión ejecutiva conserva el modelo de metas iniciales del código `ADQUIRIR - FLOW_ADQUIRIR DATA MARTS` (V7, noviembre). No reemplaza ni simula datos reales; el dashboard continúa siendo una planeación estática independiente de Google Sheets.
-
-| Período | Meta presupuesto total | Meta presupuesto para CPL | Meta leads | Google presupuesto total | Google presupuesto para CPL | Google leads |
-|---|---:|---:|---:|---:|---:|---:|
-| Septiembre 2026 | 5.560.000 | 4.060.000 | 59 | 2.940.000 | 2.940.000 | 59 |
-| Octubre 2026 | 5.560.000 | 4.060.000 | 220 | 2.940.000 | 2.940.000 | 160 |
-| Noviembre 2026 | 5.950.000 | 5.950.000 | 85 | 2.550.000 | 2.550.000 | 36 |
-
-En septiembre y octubre, la diferencia de COP 1.500.000 de Meta corresponde a una activación de alcance/frecuencia excluida del cálculo de CPL, de acuerdo con el Apps Script. El simulador independiente de noviembre mantiene la hipótesis de COP 70.000 CPL combinado y 70% Meta / 30% Google. El redondeo por plataforma de 85 + 36 leads da un CPL ponderado de COP 70.248 aprox.

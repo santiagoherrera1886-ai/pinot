@@ -14,12 +14,16 @@
   <link rel="stylesheet" href="./editorial.css?v=20261015" />
   <link rel="stylesheet" href="./flow-nov.css?v=20261030" />
   <link rel="stylesheet" href="./planning-2026.css?v=20261105" />
+  <link rel="stylesheet" href="./flows-2027.css?v=20261120" />
   <link rel="icon" href="./assets/pinot-emblem.png" type="image/png" />
   <link rel="preload" href="./assets/pinot-living.webp" as="image" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="./flow-nov.js?v=20261030" defer></script>
-  <script src="./app.js?v=20261030" defer></script>
+  <script src="./flow-nov.js?v=20261120" defer></script>
+  <script src="./app.js?v=20261120" defer></script>
   <script src="./planning-2026.js?v=20261105" defer></script>
+  <script src="./flow-history.js?v=20261120" defer></script>
+  <script src="./flow-model.js?v=20261120" defer></script>
+  <script src="./flows-2027.js?v=20261120" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Saltar al contenido</a>
@@ -38,7 +42,7 @@
         <a href="#audiences" data-nav="audiences" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 4a3 3 0 0 1 0 6M18 14a5 5 0 0 1 3 4v2"/></svg></span><span>Clústeres premium</span><span class="nav-arrow">↗</span></a>
         <a href="#territory" data-nav="territory" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span>Mapa de oportunidad</span><span class="nav-arrow">↗</span></a>
         <a href="#media" data-nav="media" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10h4v10m3 0V4h4v16m3 0V7h4v13M2 20h21"/></svg></span><span>Arquitectura de medios</span><span class="nav-arrow">↗</span></a>
-        <a href="#flow" data-nav="flow" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h5l3 6h5l5 6M16 6h5v5M16 18h5v-5"/><circle cx="3" cy="6" r="1.5"/><circle cx="21" cy="18" r="1.5"/></svg></span><span>Flow noviembre 2026</span><span class="nav-arrow">✦</span></a>
+        <a href="#flow" data-nav="flow" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h5l3 6h5l5 6M16 6h5v5M16 18h5v-5"/><circle cx="3" cy="6" r="1.5"/><circle cx="21" cy="18" r="1.5"/></svg></span><span>Flows diciembre / enero</span><span class="nav-arrow">✦</span></a>
         <a href="#keywords" data-nav="keywords" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg></span><span>Keyword intelligence</span><span class="nav-arrow">↗</span></a>
         <a href="#creatives" data-nav="creatives" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 4-5 4 5"/></svg></span><span>Creative studio</span><span class="nav-arrow">↗</span></a>
         <a href="#simulator" data-nav="simulator" class="nav-link"><span class="nav-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="#35212b"/><circle cx="16" cy="12" r="2" fill="#35212b"/><circle cx="8" cy="18" r="2" fill="#35212b"/></svg></span><span>Simulador de inversión</span><span class="nav-arrow">↗</span></a>
@@ -50,7 +54,7 @@
     <div class="sidebar-footer">
       <div class="footer-orbit">✳</div>
       <div><strong>El siguiente gran paso.</strong><span>Pinot · Plan de captación digital</span></div>
-      <span class="footer-year">2026</span>
+      <span class="footer-year">26/27</span>
     </div>
   </aside>
 
@@ -68,7 +72,7 @@
             <p class="eyebrow"><span class="eyebrow-line"></span> UNA ESTRATEGIA CON INTENCIÓN</p>
             <h1>El lugar<br>correcto.<br><em>Las personas<br>correctas.</em></h1>
             <p>Un proyecto extraordinario merece llegar a quienes saben valorarlo. Conectamos el deseo de vivir mejor con la decisión de comprar.</p>
-            <div class="hero-actions"><a class="primary-action" href="#audiences">Explorar audiencias <span>↗</span></a><a class="secondary-action" href="#simulator">Simular inversión <span>→</span></a><a class="flow-hero-cta" href="#flow">✦ Ver flow noviembre <span>↗</span></a></div>
+            <div class="hero-actions"><a class="primary-action" href="#audiences">Explorar audiencias <span>↗</span></a><a class="secondary-action" href="#simulator">Simular inversión <span>→</span></a><a class="flow-hero-cta" href="#flow">Ver flows diciembre / enero</a></div>
             <div class="hero-footnote"><span class="tiny-star" aria-hidden="true">✳</span><span>4 perfiles. 2 plataformas.<br><strong>Una oportunidad para conectar mejor.</strong></span></div>
           </div>
           <figure class="project-gallery" aria-label="Galería de renders oficiales del proyecto Pinot" aria-roledescription="carrusel">
@@ -78,17 +82,10 @@
           </figure>
         </div>
         <div class="project-specs"><span>LOMA DE LAS BRUJAS</span><span>87–164 m² aprox.</span><span>Lanzamiento torre 2</span><a href="https://www.pinot.com.co/" target="_blank" rel="noopener">Conocer el proyecto <span>↗</span></a></div>
-        <a class="flow-teaser" href="#flow"><div><span>PINOT · MEDIA FLIGHT 11/26</span><h3>La estrategia toma <i>forma.</i></h3><p>6 campañas · 2 plataformas · un objetivo: compradores de verdad.</p></div><div class="flow-teaser-right"><span>EXPLORAR EL FLOW</span><b>↗</b></div></a>
-        <div class="section-minor"><div><span class="section-index">01 /</span> LA ESTRATEGIA EN NÚMEROS</div><a href="#simulator">Ajustar escenario <span>↗</span></a></div>
-        <div class="metrics-grid">
-          <article class="metric-card"><div class="metric-top">INVERSIÓN MENSUAL <span>↗</span></div><strong id="summaryBudget">$8,5 <small>M</small></strong><div class="metric-bottom">COP · Google + Meta</div></article>
-          <article class="metric-card featured"><div class="metric-top">CPL OBJETIVO <span>◇</span></div><strong id="summaryCpl">$70.000</strong><div class="metric-bottom">COP · Meta de planificación</div></article>
-          <article class="metric-card"><div class="metric-top">LEADS PROYECTADOS <span>↗</span></div><strong id="summaryLeads">121 <small>/mes</small></strong><div class="metric-bottom">Estimación · presupuesto ÷ CPL</div></article>
-          <article class="metric-card"><div class="metric-top">AUDIENCIAS PRIORITARIAS <span>◎</span></div><strong>04 <small>clústeres</small></strong><div class="metric-bottom">Mensajes y señales diferenciadas</div><div class="metric-deco"></div></article>
-          <article class="metric-card"><div class="metric-top">TICKET DE FILTRO <span>✧</span></div><strong>$1.300 <small>M+</small></strong><div class="metric-bottom">Criterio comercial, no precio mínimo</div><div class="metric-deco"></div></article>
-        </div>
-        <p class="model-note">Proyección mensual basada en supuestos editables. No representa resultados de campañas en vivo.</p>
+        <a class="flow-teaser" href="#flow"><div><span>PINOT · DICIEMBRE 2026 / ENERO 2027</span><h3>La estrategia toma <i>forma.</i></h3><p>Inversión, segmentaciones y calendario sustentados en el histórico reciente.</p></div><div class="flow-teaser-right"><span>EXPLORAR EL FLOW</span><b>↗</b></div></a>
+        <div id="monthlySummary" class="mf mf-summary"></div>
 
+        <details class="mf-history-archive"><summary>Consultar metas históricas · septiembre a noviembre 2026</summary>
         <section class="pinot-plan2026" aria-labelledby="pinotPlanTitle">
           <div class="pinot-plan2026-head">
             <div>
@@ -128,8 +125,10 @@
               </div>
             </div>
           </div>
-          <p class="pinot-plan2026-disclaimer">Fuente: metas iniciales del Apps Script Adquirir V7. Esta sección muestra planeación mensual registrada, no datos de campañas en vivo. El simulador estratégico de arriba continúa trabajando sobre noviembre.</p>
+          <p class="pinot-plan2026-disclaimer">Fuente: metas iniciales del Apps Script Adquirir V7. Esta sección muestra planeación mensual registrada, no datos de campañas en vivo. Los flows de diciembre de 2026 y enero de 2027 se consultan en el selector principal.</p>
         </section>
+
+        </details>
 
         <div class="dashboard-two">
           <article class="panel investment-panel">
@@ -170,14 +169,18 @@
 
       <section id="media" class="page">
         <div class="section-head compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> MEDIA ARCHITECTURE · 04/08</p><h1>Dos plataformas. <em>Una intención.</em></h1><p class="section-subtitle">Google captura demanda activa; Meta construye deseo, interés y retorno. Cada campaña tiene un trabajo específico.</p></div></div>
+        <div id="monthlyMediaPeriod" class="mf mf-top-period"></div>
         <div class="media-summary"><div><span class="label-mini">PRESUPUESTO ACTUAL DEL MODELO</span><strong id="mediaTotal">$8.500.000</strong><small>Mensual · editable en simulador</small></div><span class="media-divider"></span><div><span class="label-mini">META ADS</span><strong id="mediaMeta">$5.950.000</strong><small id="mediaMetaShare">70% del escenario</small></div><span class="media-divider"></span><div><span class="label-mini">GOOGLE ADS</span><strong id="mediaGoogle">$2.550.000</strong><small id="mediaGoogleShare">30% del escenario</small></div></div>
-        <div class="section-minor"><div><span class="section-index">04</span> 06 CAMPAÑAS DEL FLOW</div><span>Distribución orientativa; no gasto observado</span></div>
+        <div class="section-minor"><div><span class="section-index">04</span> 06 LÍNEAS DEL FLOW · PMAX EN RESERVA</div><span>Distribución orientativa; no gasto observado</span></div>
         <div class="campaign-grid" id="campaignGrid"></div>
         <div class="panel"><div class="panel-header"><div><p class="label-mini">EL RECORRIDO IDEAL</p><h3>Del primer impacto a la <i>visita.</i></h3></div></div><div class="journey"><div><span>01</span><strong>DESCUBRIR</strong><small>Video / carrusel<br>Meta Ads</small></div><b>→</b><div><span>02</span><strong>CONSIDERAR</strong><small>Web / 360°<br>Retargeting</small></div><b>→</b><div><span>03</span><strong>BUSCAR</strong><small>Search de intención<br>Google Ads</small></div><b>→</b><div><span>04</span><strong>VALIDAR</strong><small>Filtro de presupuesto<br>CRM / asesor</small></div><b>→</b><div><span>05</span><strong>VISITAR</strong><small>Cita agendada<br>Calidad comercial</small></div></div></div>
       </section>
 
 
-      <section id="flow" class="page flow-page" aria-label="Flow de medios de noviembre 2026">
+      <section id="flow" class="page"><div id="monthlyFlow" class="mf"></div></section>
+
+      <section id="flow-nov" class="page flow-page" aria-label="Flow de medios de noviembre 2026">
+        <div class="mf-legacy-banner">Archivo de planeación: noviembre de 2026. Este escenario usa un CPL uniforme como supuesto. <a href="#flow">Consultar los flows justificados de diciembre y enero</a>.</div>
         <div class="flow-root">
           <div class="flow-masthead"><span><b class="flow-star">✳</b> THE PINOT MEDIA EDITION <i>/ 2026</i></span><span>ESTRATEGIA · NOVIEMBRE</span></div>
           <div class="flow-cover">
@@ -273,7 +276,10 @@
         <div class="panel creative-playbook"><div class="panel-header"><div><p class="label-mini">PLAYBOOK · FORMATO × MENSAJE</p><h3>Cómo se debe ver <i>cada anuncio.</i></h3></div></div><div class="playbook-grid"><div><span>01 / PRIMEROS 3 S</span><strong>Arquitectura en movimiento</strong><p>Abrir con un render auténtico, vista o detalle. No iniciar con un catálogo de texto.</p></div><div><span>02 / CONTENIDO</span><strong>Un beneficio por pieza</strong><p>Ubicación, exclusividad, amenities o amplitud. Evitar prometer atributos no documentados.</p></div><div><span>03 / CONVERSIÓN</span><strong>Precio / rango transparentes</strong><p>Mostrar «Desde» actualizado cuando se confirme inventario; pedir presupuesto y tiempo de compra.</p></div><div><span>04 / EXPERIMENTO</span><strong>Testar motivación</strong><p>A/B entre estilo de vida y características concretas; optimizar por cita y SQL, no por CTR aislado.</p></div></div></div>
       </section>
 
-      <section id="simulator" class="page">
+      <section id="simulator" class="page"><div id="monthlySimulator" class="mf"></div></section>
+
+      <section id="simulator-legacy" class="page">
+        <div class="mf-legacy-banner">Simulador anterior · noviembre de 2026. <a href="#simulator">Abrir simulador por mes con costos históricos</a>.</div>
         <div class="section-head compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> MEDIA FORECAST · 07/08</p><h1>La inversión bajo <em>tu control.</em></h1><p class="section-subtitle">Modifica presupuesto, CPL y participación de Google. Todo se recalcula sin simular datos históricos inexistentes.</p></div></div>
         <div class="simulation-layout">
           <article class="panel slider-panel"><div class="panel-header"><div><p class="label-mini">ESCENARIO DE INVERSIÓN</p><h3>Diseña tu <i>escenario.</i></h3></div><button id="resetSim" class="reset-btn">↶ Restablecer</button></div>
@@ -299,10 +305,10 @@
           <div class="funnel-step"><span>ETAPA 05</span><strong>Separación</strong><p>Decisión de compra registrada y atribuible.</p><small>Meta: costo por separación</small></div>
         </div>
         <div class="measurement-grid"><article class="panel"><div class="panel-header"><div><p class="label-mini">PREGUNTAS DEL FORMULARIO</p><h3>Calificar sin <i>fricción excesiva.</i></h3></div></div><div class="question-list"><div><b>01</b><span>¿En qué rango de inversión buscas tu apartamento?</span></div><div><b>02</b><span>¿En qué plazo planeas tomar una decisión?</span></div><div><b>03</b><span>¿Es para vivir, cambiar de hogar o invertir?</span></div><div><b>04</b><span>¿Quieres agendar una visita o conocer tipologías?</span></div></div></article><article class="panel"><div class="panel-header"><div><p class="label-mini">MÍNIMO DE INSTRUMENTACIÓN</p><h3>Datos que sí necesitamos.</h3></div></div><div class="measurement-checks"><p>✓ UTMs con plataforma, campaña y clúster</p><p>✓ Conversiones mejoradas / consentimiento</p><p>✓ Eventos: lead, MQL, SQL, cita y visita</p><p>✓ CRM conectado a Google y Meta cuando sea viable</p><p>✓ Tablero semanal de calidad, no solo CPL</p></div></article></div>
-        <div class="source-footer"><p>FUENTES & TRANSPARENCIA</p><span>Información del proyecto: <a href="https://www.pinot.com.co/" target="_blank" rel="noopener">Pinot ↗</a> · <a href="https://www.adquirir.com.co/proyectos" target="_blank" rel="noopener">Adquirir ↗</a> · <a href="https://arquitecturayconcreto.com/proyectos/antioquia/pinot/" target="_blank" rel="noopener">Arquitectura y Concreto ↗</a>. Los presupuestos y CPL son indicados por el cliente; el resto del plan es un modelo estratégico sin acceso a Ads Manager, CRM ni Keyword Planner.</span></div>
+        <div class="source-footer"><p>FUENTES & TRANSPARENCIA</p><span>Información del proyecto: <a href="https://www.pinot.com.co/" target="_blank" rel="noopener">Pinot ↗</a> · <a href="https://www.adquirir.com.co/proyectos" target="_blank" rel="noopener">Adquirir ↗</a> · <a href="https://arquitecturayconcreto.com/proyectos/antioquia/pinot/" target="_blank" rel="noopener">Arquitectura y Concreto ↗</a>. Los flows de diciembre de 2026 y enero de 2027 usan el corte documentado del Sheets hasta el 19 de noviembre. Son propuestas editables; no hay conexión automática con Ads Manager, CRM o Keyword Planner.</span></div>
       </section>
     </main>
-    <footer class="global-footer"><span>PINOT · LUXURY AUDIENCE & MEDIA INTELLIGENCE</span><span>HECHO PARA DECIDIR MEJOR · NOV 2026</span></footer>
+    <footer class="global-footer"><span>PINOT · LUXURY AUDIENCE & MEDIA INTELLIGENCE</span><span>FLOWS DIC 2026 / ENE 2027 · REVISIÓN 20 NOV 2026</span></footer>
   </div>
 </div>
 </body>
